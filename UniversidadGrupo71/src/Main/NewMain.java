@@ -18,7 +18,7 @@ public class NewMain {
         
         AlumnoData alu= new AlumnoData();
         //alu.guardarAlumno(new Alumno (34768990,"Sosa","Laura",LocalDate.of(1988, Month.MARCH, 15),true));
-        alu.modificarAlumno(new Alumno (34768990,"Sosa","Maria Laura",LocalDate.of(1988, Month.MARCH, 15),true));
-    
+        //alu.modificarAlumno(new Alumno (6,34768990,"Sosa","Maria Laura",LocalDate.of(1988, Month.MARCH, 15),true));
+    alu.eliminarAlumno(6);
 }
 }
