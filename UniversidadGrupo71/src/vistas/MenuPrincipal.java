@@ -28,6 +28,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         escritorio = new javax.swing.JDesktopPane();
+        botonCrearUsuario = new javax.swing.JButton();
+        botonIniciarSesion = new javax.swing.JButton();
         fondoEscritorio = new javax.swing.JLabel();
         barraMenu = new javax.swing.JMenuBar();
         menuAlumno = new javax.swing.JMenu();
@@ -35,33 +37,46 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemModifAlumno = new javax.swing.JMenuItem();
         menuItemBorrarAlumno = new javax.swing.JMenuItem();
         menuMateria = new javax.swing.JMenu();
+        menuItemCrearMateria = new javax.swing.JMenuItem();
+        menuItemModifMateria = new javax.swing.JMenuItem();
+        menuItemBorrarMateria = new javax.swing.JMenuItem();
         menuAdministracion = new javax.swing.JMenu();
+        menuItemInscribir = new javax.swing.JMenuItem();
+        menuItemAsignNota = new javax.swing.JMenuItem();
         menuConsultas = new javax.swing.JMenu();
+        menuItemBuscarAlumno = new javax.swing.JMenuItem();
+        menuItemListarAlumno = new javax.swing.JMenuItem();
+        menuItemBuscarMateria = new javax.swing.JMenuItem();
+        menuItemListarMateria = new javax.swing.JMenuItem();
         menuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        escritorio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        botonCrearUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botonCrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar30px.png"))); // NOI18N
+        botonCrearUsuario.setText("CREAR USUARIO");
+        botonCrearUsuario.setContentAreaFilled(false);
+        escritorio.add(botonCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 180, 40));
+
+        botonIniciarSesion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botonIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario30px.png"))); // NOI18N
+        botonIniciarSesion.setText(" INICIAR SESION ");
+        botonIniciarSesion.setContentAreaFilled(false);
+        escritorio.add(botonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 180, 40));
 
         fondoEscritorio.setBackground(new java.awt.Color(204, 204, 204));
         fondoEscritorio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fondoEscritorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ulpLogoFondo.png"))); // NOI18N
         fondoEscritorio.setOpaque(true);
+        escritorio.add(fondoEscritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -9, 910, 680));
 
-        escritorio.setLayer(fondoEscritorio, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
-        escritorio.setLayout(escritorioLayout);
-        escritorioLayout.setHorizontalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondoEscritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE)
-        );
-        escritorioLayout.setVerticalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondoEscritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
-        );
+        barraMenu.setPreferredSize(new java.awt.Dimension(301, 50));
 
         menuAlumno.setText("Alumno");
 
-        menuItemCrearAlumno.setText("Crear alumno");
+        menuItemCrearAlumno.setText("Crear");
         menuItemCrearAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemCrearAlumnoActionPerformed(evt);
@@ -69,7 +84,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         menuAlumno.add(menuItemCrearAlumno);
 
-        menuItemModifAlumno.setText("Modificar Alumno");
+        menuItemModifAlumno.setText("Modificar");
         menuAlumno.add(menuItemModifAlumno);
 
         menuItemBorrarAlumno.setText("Dar de baja");
@@ -78,12 +93,47 @@ public class MenuPrincipal extends javax.swing.JFrame {
         barraMenu.add(menuAlumno);
 
         menuMateria.setText("Materia");
+
+        menuItemCrearMateria.setText("Crear");
+        menuMateria.add(menuItemCrearMateria);
+
+        menuItemModifMateria.setText("Modificar");
+        menuMateria.add(menuItemModifMateria);
+
+        menuItemBorrarMateria.setText("Borrar");
+        menuMateria.add(menuItemBorrarMateria);
+
         barraMenu.add(menuMateria);
 
         menuAdministracion.setText("Administración");
+
+        menuItemInscribir.setText("Inscribir");
+        menuAdministracion.add(menuItemInscribir);
+
+        menuItemAsignNota.setText("Asignar Nota");
+        menuAdministracion.add(menuItemAsignNota);
+
         barraMenu.add(menuAdministracion);
 
         menuConsultas.setText("Consultas");
+
+        menuItemBuscarAlumno.setText("Bucar alumno");
+        menuConsultas.add(menuItemBuscarAlumno);
+
+        menuItemListarAlumno.setText("Listar alumno");
+        menuItemListarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemListarAlumnoActionPerformed(evt);
+            }
+        });
+        menuConsultas.add(menuItemListarAlumno);
+
+        menuItemBuscarMateria.setText("Buscar materia");
+        menuConsultas.add(menuItemBuscarMateria);
+
+        menuItemListarMateria.setText("Listar alumno");
+        menuConsultas.add(menuItemListarMateria);
+
         barraMenu.add(menuConsultas);
 
         menuSalir.setText("Salir");
@@ -99,7 +149,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -108,6 +160,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void menuItemCrearAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearAlumnoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuItemCrearAlumnoActionPerformed
+
+    private void menuItemListarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemListarAlumnoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,14 +203,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barraMenu;
+    private javax.swing.JButton botonCrearUsuario;
+    private javax.swing.JButton botonIniciarSesion;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JLabel fondoEscritorio;
     private javax.swing.JMenu menuAdministracion;
     private javax.swing.JMenu menuAlumno;
     private javax.swing.JMenu menuConsultas;
+    private javax.swing.JMenuItem menuItemAsignNota;
     private javax.swing.JMenuItem menuItemBorrarAlumno;
+    private javax.swing.JMenuItem menuItemBorrarMateria;
+    private javax.swing.JMenuItem menuItemBuscarAlumno;
+    private javax.swing.JMenuItem menuItemBuscarMateria;
     private javax.swing.JMenuItem menuItemCrearAlumno;
+    private javax.swing.JMenuItem menuItemCrearMateria;
+    private javax.swing.JMenuItem menuItemInscribir;
+    private javax.swing.JMenuItem menuItemListarAlumno;
+    private javax.swing.JMenuItem menuItemListarMateria;
     private javax.swing.JMenuItem menuItemModifAlumno;
+    private javax.swing.JMenuItem menuItemModifMateria;
     private javax.swing.JMenu menuMateria;
     private javax.swing.JMenu menuSalir;
     // End of variables declaration//GEN-END:variables
