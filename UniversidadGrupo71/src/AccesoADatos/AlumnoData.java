@@ -58,8 +58,8 @@ public class AlumnoData {
     
     public void modificarAlumno(Alumno alumno){
     
-    String sql="UPDATE alumno sET dni=?,apellido=?,nombre=?,fechaNac=?)"
-            + "where id=?";
+    String sql="UPDATE alumno sET dni=?,apellido=?,nombre=?,fechaNac=?"
+            + "where idAlumno=?";
     
         try {
             PreparedStatement ps=con.prepareStatement(sql);
@@ -84,8 +84,7 @@ public class AlumnoData {
     
      public void eliminarAlumno(int id){
     
-    String sql="UPDATE alumno SET estado=0"
-            + "where id=?";
+    String sql="UPDATE alumno SET estado=0 WHERE idAlumno=?";
     
         try {
             PreparedStatement ps=con.prepareStatement(sql);
@@ -104,4 +103,8 @@ public class AlumnoData {
              JOptionPane.showMessageDialog(null, "Error al trabajar con la tabla Alumno");
         }
     }
+     
+//     public Alumno buscarAlumno(int id){
+//     return alumno;
+//     }
 }
