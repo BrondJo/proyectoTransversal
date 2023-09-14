@@ -261,6 +261,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         menuItemInscribir.setBackground(new java.awt.Color(204, 204, 204));
         menuItemInscribir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        menuItemInscribir.setForeground(new java.awt.Color(0, 0, 0));
         menuItemInscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carpeta.png"))); // NOI18N
         menuItemInscribir.setText("Inscribir");
         menuItemInscribir.setMinimumSize(new java.awt.Dimension(150, 55));
@@ -305,7 +306,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemListarAlumno.setBackground(new java.awt.Color(204, 204, 204));
         menuItemListarAlumno.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menuItemListarAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listaUsuarios.png"))); // NOI18N
-        menuItemListarAlumno.setText("Listar alumnos");
+        menuItemListarAlumno.setText("Listar alumno");
         menuItemListarAlumno.setOpaque(true);
         menuItemListarAlumno.setPreferredSize(new java.awt.Dimension(121, 55));
         menuItemListarAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -326,7 +327,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemListarMateria.setBackground(new java.awt.Color(204, 204, 204));
         menuItemListarMateria.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menuItemListarMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mostrarNotas.png"))); // NOI18N
-        menuItemListarMateria.setText("Listar materias");
+        menuItemListarMateria.setText("Listar alumno");
         menuItemListarMateria.setOpaque(true);
         menuItemListarMateria.setPreferredSize(new java.awt.Dimension(131, 55));
         menuConsultas.add(menuItemListarMateria);
