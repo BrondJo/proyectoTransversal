@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -120,30 +121,33 @@ public class InscripcionData {
     }
     
     public List<Materia> obtenerMateriasNoCursadas(int id){
+    
     List<Materia> materias=new ArrayList<Materia>();
-    String sql="SELECT inscripcion.idMateria, nombre, año FROM materia, inscripcion "
-            + "WHERE inscripcion.idMateria!=materia.idMateria AND idAlumno=? ";
-        try {
-            PreparedStatement ps=con.prepareStatement(sql);
-            ps.setInt(1, id);
-            ResultSet rs=ps.executeQuery();
-            Materia materia;
-            while (rs.next()) {                
-                materia= new Materia();
-                materia.setId(rs.getInt("idMateria"));             
-                materia.setNombre(rs.getString("nombre"));
-                materia.setAnio( rs.getInt("año"));
-                materias.add(materia);
+        materias=matData.listarMaterias();
+    List<Materia> cursadas=new ArrayList<Materia>();
+        cursadas=obtenerMateriasCursadas(id);   
+        
+        
+        Iterator<Materia> itr = materias.iterator();
+ 
+        while (itr.hasNext())
+        {
+            Materia t = itr.next();
+             for(Materia matC:cursadas){
+                if(t.getNombre().equals(matC.getNombre())){ 
+                     itr.remove();
+                }
             }
-            ps.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al trabajar en obtenerMateriasCursadas "+ex.getMessage());
         }
+        
     return materias;       
+        
     }
+    
+    
  
     public void borrarInscripcion(int idMateria, int idAlumno){
-    String sql="UPDATE inscripcion SET estado=0 WHERE idAlumno=? AND idMateria=?";
+    String sql="DELETE FROM `inscripcion` WHERE idAlumno=? AND idMateria=?";
     
         try {
             PreparedStatement ps=con.prepareStatement(sql);
@@ -188,7 +192,7 @@ public class InscripcionData {
     public List<Alumno> obtenerAlumnosXMateria(int idMateria){
     List<Alumno> alumnos=new ArrayList<Alumno>();
     String sql="SELECT inscripcion.idAlumno, apellido, nombre FROM alumno, inscripcion "
-            + "WHERE inscripcion.idMAlumno=materia.idAlumno AND idMateria=? ";
+            + "WHERE inscripcion.idAlumno=alumno.idAlumno AND idMateria=? ";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setInt(1, idMateria);
