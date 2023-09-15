@@ -38,6 +38,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio = new javax.swing.JDesktopPane();
         botonCrearUsuario = new javax.swing.JButton();
         botonIniciarSesion = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         labelFooter = new javax.swing.JLabel();
         barraMenu = new javax.swing.JMenuBar();
         menuAlumno = new javax.swing.JMenu();
@@ -66,11 +67,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        escritorio.setBackground(new java.awt.Color(102, 102, 102));
-        escritorio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        escritorio.setBackground(new java.awt.Color(223, 232, 225));
+        escritorio.setBorder(null);
         escritorio.setEnabled(false);
 
-        botonCrearUsuario.setBackground(new java.awt.Color(102, 102, 102));
+        botonCrearUsuario.setBackground(new java.awt.Color(223, 232, 225));
         botonCrearUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         botonCrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar30px.png"))); // NOI18N
         botonCrearUsuario.setText("CREAR USUARIO");
@@ -83,9 +84,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 botonCrearUsuarioMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botonCrearUsuarioMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                botonCrearUsuarioMouseReleased(evt);
+            }
         });
 
-        botonIniciarSesion.setBackground(new java.awt.Color(102, 102, 102));
+        botonIniciarSesion.setBackground(new java.awt.Color(223, 232, 225));
         botonIniciarSesion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         botonIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario30px.png"))); // NOI18N
         botonIniciarSesion.setText(" INICIAR SESION ");
@@ -98,6 +105,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 botonIniciarSesionMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botonIniciarSesionMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                botonIniciarSesionMouseReleased(evt);
+            }
         });
         botonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,15 +118,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoUlp.png"))); // NOI18N
+
         escritorio.setLayer(botonCrearUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(botonIniciarSesion, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
-                .addContainerGap(985, Short.MAX_VALUE)
+                .addContainerGap(347, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(179, 179, 179)
                 .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -126,27 +144,32 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(botonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(botonCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(387, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 520));
 
-        labelFooter.setBackground(new java.awt.Color(13, 63, 119));
+        labelFooter.setBackground(new java.awt.Color(15, 63, 119));
         labelFooter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelFooter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/footerUlpVirtual.png"))); // NOI18N
+        labelFooter.setToolTipText("");
         labelFooter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         labelFooter.setOpaque(true);
         getContentPane().add(labelFooter, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 1190, -1));
 
-        barraMenu.setBackground(new java.awt.Color(102, 102, 102));
-        barraMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        barraMenu.setBackground(new java.awt.Color(15, 63, 119));
+        barraMenu.setBorder(null);
         barraMenu.setEnabled(false);
         barraMenu.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
         barraMenu.setName(""); // NOI18N
         barraMenu.setOpaque(true);
         barraMenu.setPreferredSize(new java.awt.Dimension(301, 100));
 
-        menuAlumno.setBackground(new java.awt.Color(102, 102, 102));
+        menuAlumno.setBackground(new java.awt.Color(15, 63, 119));
         menuAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/virrete.png"))); // NOI18N
         menuAlumno.setText("Alumno");
         menuAlumno.setContentAreaFilled(false);
@@ -162,7 +185,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        menuItemCrearAlumno.setBackground(new java.awt.Color(204, 204, 204));
+        menuItemCrearAlumno.setBackground(new java.awt.Color(87, 116, 134));
         menuItemCrearAlumno.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menuItemCrearAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregarUsuario.png"))); // NOI18N
         menuItemCrearAlumno.setText("Nuevo");
@@ -183,7 +206,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         menuAlumno.add(menuItemCrearAlumno);
 
-        menuItemModifAlumno.setBackground(new java.awt.Color(204, 204, 204));
+        menuItemModifAlumno.setBackground(new java.awt.Color(87, 116, 134));
         menuItemModifAlumno.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menuItemModifAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editarUsuario.png"))); // NOI18N
         menuItemModifAlumno.setText("Editar");
@@ -191,7 +214,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemModifAlumno.setPreferredSize(new java.awt.Dimension(129, 55));
         menuAlumno.add(menuItemModifAlumno);
 
-        menuItemBorrarAlumno.setBackground(new java.awt.Color(204, 204, 204));
+        menuItemBorrarAlumno.setBackground(new java.awt.Color(87, 116, 134));
         menuItemBorrarAlumno.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menuItemBorrarAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/borrarUsuario.png"))); // NOI18N
         menuItemBorrarAlumno.setText("Baja");
@@ -202,7 +225,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         barraMenu.add(menuAlumno);
         menuAlumno.getAccessibleContext().setAccessibleDescription("");
 
-        menuMateria.setBackground(new java.awt.Color(102, 102, 102));
+        menuMateria.setBackground(new java.awt.Color(15, 63, 119));
         menuMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/libros.png"))); // NOI18N
         menuMateria.setText("Materia");
         menuMateria.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -217,7 +240,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        menuItemCrearMateria.setBackground(new java.awt.Color(204, 204, 204));
+        menuItemCrearMateria.setBackground(new java.awt.Color(87, 116, 134));
         menuItemCrearMateria.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menuItemCrearMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregarMateria.png"))); // NOI18N
         menuItemCrearMateria.setText("Nueva");
@@ -225,7 +248,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemCrearMateria.setPreferredSize(new java.awt.Dimension(137, 55));
         menuMateria.add(menuItemCrearMateria);
 
-        menuItemModifMateria.setBackground(new java.awt.Color(204, 204, 204));
+        menuItemModifMateria.setBackground(new java.awt.Color(87, 116, 134));
         menuItemModifMateria.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menuItemModifMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editarMateria3.png"))); // NOI18N
         menuItemModifMateria.setText("Editar");
@@ -233,7 +256,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemModifMateria.setPreferredSize(new java.awt.Dimension(137, 55));
         menuMateria.add(menuItemModifMateria);
 
-        menuItemBorrarMateria.setBackground(new java.awt.Color(204, 204, 204));
+        menuItemBorrarMateria.setBackground(new java.awt.Color(87, 116, 134));
         menuItemBorrarMateria.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menuItemBorrarMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/desecharMateria.png"))); // NOI18N
         menuItemBorrarMateria.setText("Borrar");
@@ -243,7 +266,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(menuMateria);
 
-        menuAdministracion.setBackground(new java.awt.Color(102, 102, 102));
+        menuAdministracion.setBackground(new java.awt.Color(15, 63, 119));
         menuAdministracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/administracion.png"))); // NOI18N
         menuAdministracion.setText("Administración");
         menuAdministracion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -259,9 +282,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        menuItemInscribir.setBackground(new java.awt.Color(204, 204, 204));
+        menuItemInscribir.setBackground(new java.awt.Color(87, 116, 134));
         menuItemInscribir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        menuItemInscribir.setForeground(new java.awt.Color(0, 0, 0));
         menuItemInscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carpeta.png"))); // NOI18N
         menuItemInscribir.setText("Inscribir");
         menuItemInscribir.setMinimumSize(new java.awt.Dimension(150, 55));
@@ -269,7 +291,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemInscribir.setPreferredSize(new java.awt.Dimension(180, 55));
         menuAdministracion.add(menuItemInscribir);
 
-        menuItemAsignNota.setBackground(new java.awt.Color(204, 204, 204));
+        menuItemAsignNota.setBackground(new java.awt.Color(87, 116, 134));
         menuItemAsignNota.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menuItemAsignNota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nota.png"))); // NOI18N
         menuItemAsignNota.setText("Asignar Nota");
@@ -279,7 +301,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(menuAdministracion);
 
-        menuConsultas.setBackground(new java.awt.Color(102, 102, 102));
+        menuConsultas.setBackground(new java.awt.Color(15, 63, 119));
         menuConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa.png"))); // NOI18N
         menuConsultas.setText("Consultas");
         menuConsultas.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -295,7 +317,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        menuItemBuscarAlumno.setBackground(new java.awt.Color(204, 204, 204));
+        menuItemBuscarAlumno.setBackground(new java.awt.Color(87, 116, 134));
         menuItemBuscarAlumno.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menuItemBuscarAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscarUsuario.png"))); // NOI18N
         menuItemBuscarAlumno.setText("Bucar alumno");
@@ -303,10 +325,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemBuscarAlumno.setPreferredSize(new java.awt.Dimension(200, 55));
         menuConsultas.add(menuItemBuscarAlumno);
 
-        menuItemListarAlumno.setBackground(new java.awt.Color(204, 204, 204));
+        menuItemListarAlumno.setBackground(new java.awt.Color(87, 116, 134));
         menuItemListarAlumno.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menuItemListarAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listaUsuarios.png"))); // NOI18N
-        menuItemListarAlumno.setText("Listar alumno");
+        menuItemListarAlumno.setText("Listar alumnos");
         menuItemListarAlumno.setOpaque(true);
         menuItemListarAlumno.setPreferredSize(new java.awt.Dimension(121, 55));
         menuItemListarAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -316,7 +338,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         menuConsultas.add(menuItemListarAlumno);
 
-        menuItemBuscarMateria.setBackground(new java.awt.Color(204, 204, 204));
+        menuItemBuscarMateria.setBackground(new java.awt.Color(87, 116, 134));
         menuItemBuscarMateria.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menuItemBuscarMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscarMateria.png"))); // NOI18N
         menuItemBuscarMateria.setText("Buscar materia");
@@ -324,10 +346,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemBuscarMateria.setPreferredSize(new java.awt.Dimension(131, 55));
         menuConsultas.add(menuItemBuscarMateria);
 
-        menuItemListarMateria.setBackground(new java.awt.Color(204, 204, 204));
+        menuItemListarMateria.setBackground(new java.awt.Color(87, 116, 134));
         menuItemListarMateria.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menuItemListarMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mostrarNotas.png"))); // NOI18N
-        menuItemListarMateria.setText("Listar alumno");
+        menuItemListarMateria.setText("Listar materias");
         menuItemListarMateria.setOpaque(true);
         menuItemListarMateria.setPreferredSize(new java.awt.Dimension(131, 55));
         menuConsultas.add(menuItemListarMateria);
@@ -338,7 +360,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2.setPreferredSize(new java.awt.Dimension(230, 55));
         barraMenu.add(jMenu2);
 
-        menuSalir.setBackground(new java.awt.Color(102, 102, 102));
+        menuSalir.setBackground(new java.awt.Color(15, 63, 119));
         menuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.Ico.png"))); // NOI18N
         menuSalir.setText("Salir");
         menuSalir.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -356,11 +378,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 menuSalirMouseExited(evt);
             }
         });
-        menuSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuSalirActionPerformed(evt);
-            }
-        });
         barraMenu.add(menuSalir);
         menuSalir.getAccessibleContext().setAccessibleDescription("salir");
 
@@ -372,8 +389,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void menuItemCrearAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearAlumnoActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-       
-
         //escritorio.add(fondoEscritorio);
         escritorio.moveToFront(this);
     }//GEN-LAST:event_menuItemCrearAlumnoActionPerformed
@@ -399,68 +414,81 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemCrearAlumnoMouseExited
 
     private void botonIniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIniciarSesionMouseEntered
-        botonIniciarSesion.setBackground(new Color(120, 120, 120));
+        botonIniciarSesion.setBackground(new Color(230, 244, 245));
 
     }//GEN-LAST:event_botonIniciarSesionMouseEntered
 
     private void botonIniciarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIniciarSesionMouseExited
-        botonIniciarSesion.setBackground(new Color(102, 102, 102));
+        botonIniciarSesion.setBackground(new Color(223, 232, 225));
+
     }//GEN-LAST:event_botonIniciarSesionMouseExited
 
     private void botonCrearUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCrearUsuarioMouseEntered
-        botonCrearUsuario.setBackground(new Color(120, 120, 120));
+        botonCrearUsuario.setBackground(new Color(230, 244, 245));
     }//GEN-LAST:event_botonCrearUsuarioMouseEntered
 
     private void botonCrearUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCrearUsuarioMouseExited
-        botonCrearUsuario.setBackground(new Color(102, 102, 102));
+        botonCrearUsuario.setBackground(new Color(223, 232, 225));
     }//GEN-LAST:event_botonCrearUsuarioMouseExited
 
     private void menuAlumnoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAlumnoMouseEntered
-        menuAlumno.setBackground(new Color(120, 120, 120));
+        menuAlumno.setBackground(new Color(59,99,133));
     }//GEN-LAST:event_menuAlumnoMouseEntered
 
     private void menuAlumnoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAlumnoMouseExited
-        menuAlumno.setBackground(new Color(102, 102, 102));
+        menuAlumno.setBackground(new Color(15,63,119));
     }//GEN-LAST:event_menuAlumnoMouseExited
 
     private void menuMateriaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMateriaMouseEntered
-        menuMateria.setBackground(new Color(120, 120, 120));
+        menuMateria.setBackground(new Color(59,99,133));
     }//GEN-LAST:event_menuMateriaMouseEntered
 
     private void menuMateriaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMateriaMouseExited
-        menuMateria.setBackground(new Color(102, 102, 102));
+        menuMateria.setBackground(new Color(15,63,119));
     }//GEN-LAST:event_menuMateriaMouseExited
 
     private void menuAdministracionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAdministracionMouseEntered
-        menuAdministracion.setBackground(new Color(120, 120, 120));
+        menuAdministracion.setBackground(new Color(59,99,133));
     }//GEN-LAST:event_menuAdministracionMouseEntered
 
     private void menuAdministracionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAdministracionMouseExited
-        menuAdministracion.setBackground(new Color(102, 102, 102));
+        menuAdministracion.setBackground(new Color(15,63,119));
     }//GEN-LAST:event_menuAdministracionMouseExited
 
     private void menuConsultasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuConsultasMouseEntered
-        menuConsultas.setBackground(new Color(120, 120, 120));
+        menuConsultas.setBackground(new Color(59,99,133));
     }//GEN-LAST:event_menuConsultasMouseEntered
 
     private void menuConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuConsultasMouseExited
-        menuConsultas.setBackground(new Color(102, 102, 102));
+        menuConsultas.setBackground(new Color(15,63,119));
     }//GEN-LAST:event_menuConsultasMouseExited
 
     private void menuSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSalirMouseEntered
-        menuSalir.setBackground(new Color(120, 120, 120));
+        menuSalir.setBackground(new Color(59,99,133));
     }//GEN-LAST:event_menuSalirMouseEntered
 
     private void menuSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSalirMouseExited
-        menuSalir.setBackground(new Color(102, 102, 102));
+        menuSalir.setBackground(new Color(15,63,119));
     }//GEN-LAST:event_menuSalirMouseExited
 
-    private void menuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSalirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_menuSalirActionPerformed
+    private void botonIniciarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIniciarSesionMouseReleased
+        botonCrearUsuario.setBackground(new Color(230, 244, 245));
+    }//GEN-LAST:event_botonIniciarSesionMouseReleased
+
+    private void botonIniciarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIniciarSesionMousePressed
+        botonIniciarSesion.setBackground(new Color(170, 194, 205));
+    }//GEN-LAST:event_botonIniciarSesionMousePressed
+
+    private void botonCrearUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCrearUsuarioMousePressed
+        botonCrearUsuario.setBackground(new Color(170, 194, 205));
+    }//GEN-LAST:event_botonCrearUsuarioMousePressed
+
+    private void botonCrearUsuarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCrearUsuarioMouseReleased
+        botonCrearUsuario.setBackground(new Color(230, 244, 245));
+    }//GEN-LAST:event_botonCrearUsuarioMouseReleased
 
     private void menuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSalirMouseClicked
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_menuSalirMouseClicked
 
     /**
@@ -506,6 +534,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botonCrearUsuario;
     private javax.swing.JButton botonIniciarSesion;
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JLabel labelFooter;
     private javax.swing.JMenu menuAdministracion;
