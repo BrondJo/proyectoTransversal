@@ -6,9 +6,8 @@
 package vistas;
 
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JInternalFrame;
 
 /**
  *
@@ -22,8 +21,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form MenuPrincipal
      */
-    public MenuPrincipal() {
+    public MenuPrincipal() {      
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setSize(1200,820);
     }
 
     /**
@@ -35,11 +37,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelEscritorio = new javax.swing.JPanel();
         escritorio = new javax.swing.JDesktopPane();
         botonCrearUsuario = new javax.swing.JButton();
         botonIniciarSesion = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         labelFooter = new javax.swing.JLabel();
+        labelFondoLogo = new javax.swing.JLabel();
         barraMenu = new javax.swing.JMenuBar();
         menuAlumno = new javax.swing.JMenu();
         menuItemCrearAlumno = new javax.swing.JMenuItem();
@@ -58,14 +61,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemBuscarMateria = new javax.swing.JMenuItem();
         menuItemListarMateria = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        menuItemBuscarAlumno1 = new javax.swing.JMenuItem();
+        menuItemBuscarAlumno2 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
         menuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Universidad de La Punta");
         setBackground(new java.awt.Color(102, 102, 102));
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/ulpLogoFondo.png")).getImage());
+        setMinimumSize(new java.awt.Dimension(1200, 750));
+        setPreferredSize(new java.awt.Dimension(1200, 750));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelEscritorio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         escritorio.setBackground(new java.awt.Color(223, 232, 225));
         escritorio.setEnabled(false);
@@ -88,6 +99,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 botonCrearUsuarioMouseReleased(evt);
+            }
+        });
+        botonCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCrearUsuarioActionPerformed(evt);
             }
         });
 
@@ -117,48 +133,58 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoUlp.png"))); // NOI18N
+        labelFooter.setBackground(new java.awt.Color(15, 63, 119));
+        labelFooter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFooter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/footerUlpVirtual.png"))); // NOI18N
+        labelFooter.setToolTipText("");
+        labelFooter.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        labelFooter.setMaximumSize(null);
+        labelFooter.setMinimumSize(null);
+        labelFooter.setName(""); // NOI18N
+        labelFooter.setOpaque(true);
+        labelFooter.setPreferredSize(null);
+
+        labelFondoLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoUlp.png"))); // NOI18N
 
         escritorio.setLayer(botonCrearUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(botonIniciarSesion, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        escritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(labelFooter, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(labelFondoLogo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
-                .addContainerGap(347, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(escritorioLayout.createSequentialGroup()
+                .addGap(363, 363, 363)
+                .addComponent(labelFondoLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(179, 179, 179)
                 .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+                    .addComponent(botonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelFooter, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(botonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(botonCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelFondoLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(escritorioLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(botonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(botonCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(labelFooter, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        getContentPane().add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 520));
+        panelEscritorio.add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
-        labelFooter.setBackground(new java.awt.Color(15, 63, 119));
-        labelFooter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelFooter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/footerUlpVirtual.png"))); // NOI18N
-        labelFooter.setToolTipText("");
-        labelFooter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        labelFooter.setOpaque(true);
-        getContentPane().add(labelFooter, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 1190, -1));
+        getContentPane().add(panelEscritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         barraMenu.setBackground(new java.awt.Color(15, 63, 119));
         barraMenu.setBorder(null);
@@ -169,6 +195,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         barraMenu.setPreferredSize(new java.awt.Dimension(301, 100));
 
         menuAlumno.setBackground(new java.awt.Color(15, 63, 119));
+        menuAlumno.setForeground(new java.awt.Color(223, 232, 225));
         menuAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/virrete.png"))); // NOI18N
         menuAlumno.setText("Alumno");
         menuAlumno.setContentAreaFilled(false);
@@ -211,6 +238,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemModifAlumno.setText("Editar");
         menuItemModifAlumno.setOpaque(true);
         menuItemModifAlumno.setPreferredSize(new java.awt.Dimension(129, 55));
+        menuItemModifAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemModifAlumnoActionPerformed(evt);
+            }
+        });
         menuAlumno.add(menuItemModifAlumno);
 
         menuItemBorrarAlumno.setBackground(new java.awt.Color(87, 116, 134));
@@ -219,12 +251,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemBorrarAlumno.setText("Baja");
         menuItemBorrarAlumno.setOpaque(true);
         menuItemBorrarAlumno.setPreferredSize(new java.awt.Dimension(145, 55));
+        menuItemBorrarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemBorrarAlumnoActionPerformed(evt);
+            }
+        });
         menuAlumno.add(menuItemBorrarAlumno);
 
         barraMenu.add(menuAlumno);
         menuAlumno.getAccessibleContext().setAccessibleDescription("");
 
         menuMateria.setBackground(new java.awt.Color(15, 63, 119));
+        menuMateria.setForeground(new java.awt.Color(223, 232, 225));
         menuMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/libros.png"))); // NOI18N
         menuMateria.setText("Materia");
         menuMateria.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -245,6 +283,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemCrearMateria.setText("Nueva");
         menuItemCrearMateria.setOpaque(true);
         menuItemCrearMateria.setPreferredSize(new java.awt.Dimension(137, 55));
+        menuItemCrearMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemCrearMateriaActionPerformed(evt);
+            }
+        });
         menuMateria.add(menuItemCrearMateria);
 
         menuItemModifMateria.setBackground(new java.awt.Color(87, 116, 134));
@@ -253,6 +296,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemModifMateria.setText("Editar");
         menuItemModifMateria.setOpaque(true);
         menuItemModifMateria.setPreferredSize(new java.awt.Dimension(137, 55));
+        menuItemModifMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemModifMateriaActionPerformed(evt);
+            }
+        });
         menuMateria.add(menuItemModifMateria);
 
         menuItemBorrarMateria.setBackground(new java.awt.Color(87, 116, 134));
@@ -261,11 +309,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemBorrarMateria.setText("Borrar");
         menuItemBorrarMateria.setOpaque(true);
         menuItemBorrarMateria.setPreferredSize(new java.awt.Dimension(137, 55));
+        menuItemBorrarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemBorrarMateriaActionPerformed(evt);
+            }
+        });
         menuMateria.add(menuItemBorrarMateria);
 
         barraMenu.add(menuMateria);
 
         menuAdministracion.setBackground(new java.awt.Color(15, 63, 119));
+        menuAdministracion.setForeground(new java.awt.Color(223, 232, 225));
         menuAdministracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/administracion.png"))); // NOI18N
         menuAdministracion.setText("Administración");
         menuAdministracion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -288,6 +342,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemInscribir.setMinimumSize(new java.awt.Dimension(150, 55));
         menuItemInscribir.setOpaque(true);
         menuItemInscribir.setPreferredSize(new java.awt.Dimension(180, 55));
+        menuItemInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemInscribirActionPerformed(evt);
+            }
+        });
         menuAdministracion.add(menuItemInscribir);
 
         menuItemAsignNota.setBackground(new java.awt.Color(87, 116, 134));
@@ -296,17 +355,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemAsignNota.setText("Asignar Nota");
         menuItemAsignNota.setOpaque(true);
         menuItemAsignNota.setPreferredSize(new java.awt.Dimension(115, 55));
+        menuItemAsignNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAsignNotaActionPerformed(evt);
+            }
+        });
         menuAdministracion.add(menuItemAsignNota);
 
         barraMenu.add(menuAdministracion);
 
         menuConsultas.setBackground(new java.awt.Color(15, 63, 119));
+        menuConsultas.setForeground(new java.awt.Color(223, 232, 225));
         menuConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa.png"))); // NOI18N
         menuConsultas.setText("Consultas");
         menuConsultas.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         menuConsultas.setMaximumSize(new java.awt.Dimension(250, 32767));
         menuConsultas.setOpaque(true);
-        menuConsultas.setPreferredSize(new java.awt.Dimension(240, 33));
+        menuConsultas.setPreferredSize(new java.awt.Dimension(240, 35));
         menuConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 menuConsultasMouseEntered(evt);
@@ -322,6 +387,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemBuscarAlumno.setText("Bucar alumno");
         menuItemBuscarAlumno.setOpaque(true);
         menuItemBuscarAlumno.setPreferredSize(new java.awt.Dimension(200, 55));
+        menuItemBuscarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemBuscarAlumnoActionPerformed(evt);
+            }
+        });
         menuConsultas.add(menuItemBuscarAlumno);
 
         menuItemListarAlumno.setBackground(new java.awt.Color(87, 116, 134));
@@ -343,6 +413,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemBuscarMateria.setText("Buscar materia");
         menuItemBuscarMateria.setOpaque(true);
         menuItemBuscarMateria.setPreferredSize(new java.awt.Dimension(131, 55));
+        menuItemBuscarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemBuscarMateriaActionPerformed(evt);
+            }
+        });
         menuConsultas.add(menuItemBuscarMateria);
 
         menuItemListarMateria.setBackground(new java.awt.Color(87, 116, 134));
@@ -351,21 +426,56 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemListarMateria.setText("Listar materias");
         menuItemListarMateria.setOpaque(true);
         menuItemListarMateria.setPreferredSize(new java.awt.Dimension(131, 55));
+        menuItemListarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemListarMateriaActionPerformed(evt);
+            }
+        });
         menuConsultas.add(menuItemListarMateria);
 
         barraMenu.add(menuConsultas);
 
         jMenu2.setEnabled(false);
-        jMenu2.setPreferredSize(new java.awt.Dimension(230, 55));
+        jMenu2.setPreferredSize(new java.awt.Dimension(200, 55));
         barraMenu.add(jMenu2);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cuenta.png"))); // NOI18N
+        jMenu1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jMenu1.setPreferredSize(new java.awt.Dimension(55, 19));
+
+        menuItemBuscarAlumno1.setBackground(new java.awt.Color(87, 116, 134));
+        menuItemBuscarAlumno1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        menuItemBuscarAlumno1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario30px.png"))); // NOI18N
+        menuItemBuscarAlumno1.setText("Mi cuenta");
+        menuItemBuscarAlumno1.setOpaque(true);
+        menuItemBuscarAlumno1.setPreferredSize(new java.awt.Dimension(200, 55));
+        jMenu1.add(menuItemBuscarAlumno1);
+
+        menuItemBuscarAlumno2.setBackground(new java.awt.Color(87, 116, 134));
+        menuItemBuscarAlumno2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        menuItemBuscarAlumno2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/apagar.png"))); // NOI18N
+        menuItemBuscarAlumno2.setText("Cerrar sesión");
+        menuItemBuscarAlumno2.setOpaque(true);
+        menuItemBuscarAlumno2.setPreferredSize(new java.awt.Dimension(200, 55));
+        jMenu1.add(menuItemBuscarAlumno2);
+
+        barraMenu.add(jMenu1);
+
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/opcionesIco.png"))); // NOI18N
+        jMenu3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMenu3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu3.setPreferredSize(new java.awt.Dimension(50, 53));
+        barraMenu.add(jMenu3);
 
         menuSalir.setBackground(new java.awt.Color(15, 63, 119));
         menuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.Ico.png"))); // NOI18N
-        menuSalir.setText("Salir");
+        menuSalir.setFocusable(false);
         menuSalir.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        menuSalir.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        menuSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        menuSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        menuSalir.setMaximumSize(new java.awt.Dimension(50, 32767));
         menuSalir.setOpaque(true);
-        menuSalir.setPreferredSize(new java.awt.Dimension(100, 33));
+        menuSalir.setPreferredSize(new java.awt.Dimension(50, 33));
         menuSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuSalirMouseClicked(evt);
@@ -386,22 +496,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemCrearAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearAlumnoActionPerformed
-        escritorio.removeAll();
-        escritorio.repaint();
-        //escritorio.add(fondoEscritorio);
-        escritorio.moveToFront(this);
+        mostrarInternalFrame(new CrearAlumno());
     }//GEN-LAST:event_menuItemCrearAlumnoActionPerformed
 
     private void menuItemListarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarAlumnoActionPerformed
-        // TODO add your handling code here:
+        mostrarInternalFrame(new ListarAlumnosView());
     }//GEN-LAST:event_menuItemListarAlumnoActionPerformed
 
     private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIniciarSesionActionPerformed
 
-        LoginView vistaLogin = new LoginView();
+        LoginView vistaLogin = new LoginView(this);
         vistaLogin.setVisible(true);
-
-
     }//GEN-LAST:event_botonIniciarSesionActionPerformed
 
     private void menuItemCrearAlumnoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItemCrearAlumnoMouseEntered
@@ -431,43 +536,43 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCrearUsuarioMouseExited
 
     private void menuAlumnoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAlumnoMouseEntered
-        menuAlumno.setBackground(new Color(59,99,133));
+        menuAlumno.setBackground(new Color(59, 99, 133));
     }//GEN-LAST:event_menuAlumnoMouseEntered
 
     private void menuAlumnoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAlumnoMouseExited
-        menuAlumno.setBackground(new Color(15,63,119));
+        menuAlumno.setBackground(new Color(15, 63, 119));
     }//GEN-LAST:event_menuAlumnoMouseExited
 
     private void menuMateriaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMateriaMouseEntered
-        menuMateria.setBackground(new Color(59,99,133));
+        menuMateria.setBackground(new Color(59, 99, 133));
     }//GEN-LAST:event_menuMateriaMouseEntered
 
     private void menuMateriaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMateriaMouseExited
-        menuMateria.setBackground(new Color(15,63,119));
+        menuMateria.setBackground(new Color(15, 63, 119));
     }//GEN-LAST:event_menuMateriaMouseExited
 
     private void menuAdministracionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAdministracionMouseEntered
-        menuAdministracion.setBackground(new Color(59,99,133));
+        menuAdministracion.setBackground(new Color(59, 99, 133));
     }//GEN-LAST:event_menuAdministracionMouseEntered
 
     private void menuAdministracionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAdministracionMouseExited
-        menuAdministracion.setBackground(new Color(15,63,119));
+        menuAdministracion.setBackground(new Color(15, 63, 119));
     }//GEN-LAST:event_menuAdministracionMouseExited
 
     private void menuConsultasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuConsultasMouseEntered
-        menuConsultas.setBackground(new Color(59,99,133));
+        menuConsultas.setBackground(new Color(59, 99, 133));
     }//GEN-LAST:event_menuConsultasMouseEntered
 
     private void menuConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuConsultasMouseExited
-        menuConsultas.setBackground(new Color(15,63,119));
+        menuConsultas.setBackground(new Color(15, 63, 119));
     }//GEN-LAST:event_menuConsultasMouseExited
 
     private void menuSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSalirMouseEntered
-        menuSalir.setBackground(new Color(59,99,133));
+        menuSalir.setBackground(new Color(59, 99, 133));
     }//GEN-LAST:event_menuSalirMouseEntered
 
     private void menuSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSalirMouseExited
-        menuSalir.setBackground(new Color(15,63,119));
+        menuSalir.setBackground(new Color(15, 63, 119));
     }//GEN-LAST:event_menuSalirMouseExited
 
     private void botonIniciarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIniciarSesionMouseReleased
@@ -489,6 +594,50 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void menuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSalirMouseClicked
         System.exit(0);
     }//GEN-LAST:event_menuSalirMouseClicked
+
+    private void menuItemBorrarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBorrarAlumnoActionPerformed
+        mostrarInternalFrame(new EliminarAlumno());
+    }//GEN-LAST:event_menuItemBorrarAlumnoActionPerformed
+
+    private void menuItemBorrarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBorrarMateriaActionPerformed
+        mostrarInternalFrame(new EliminarMateria());
+    }//GEN-LAST:event_menuItemBorrarMateriaActionPerformed
+
+    private void menuItemInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemInscribirActionPerformed
+        mostrarInternalFrame(new InscripcionVista());
+    }//GEN-LAST:event_menuItemInscribirActionPerformed
+
+    private void menuItemCrearMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearMateriaActionPerformed
+        mostrarInternalFrame(new CrearMateria());
+    }//GEN-LAST:event_menuItemCrearMateriaActionPerformed
+
+    private void menuItemModifMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemModifMateriaActionPerformed
+        mostrarInternalFrame(new ModificarMateria());
+    }//GEN-LAST:event_menuItemModifMateriaActionPerformed
+
+    private void menuItemBuscarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarAlumnoActionPerformed
+        mostrarInternalFrame(new BuscarAlumnoView());
+    }//GEN-LAST:event_menuItemBuscarAlumnoActionPerformed
+
+    private void menuItemBuscarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarMateriaActionPerformed
+        mostrarInternalFrame(new BuscarMateriaView());
+    }//GEN-LAST:event_menuItemBuscarMateriaActionPerformed
+
+    private void menuItemListarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarMateriaActionPerformed
+        mostrarInternalFrame(new MostrarMateriasView());
+    }//GEN-LAST:event_menuItemListarMateriaActionPerformed
+
+    private void menuItemAsignNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAsignNotaActionPerformed
+        mostrarInternalFrame(new AsignarNota());
+    }//GEN-LAST:event_menuItemAsignNotaActionPerformed
+
+    private void menuItemModifAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemModifAlumnoActionPerformed
+        mostrarInternalFrame(new ModificarAlumno());
+    }//GEN-LAST:event_menuItemModifAlumnoActionPerformed
+
+    private void botonCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearUsuarioActionPerformed
+        new RegistroView(this).setVisible(true);
+    }//GEN-LAST:event_botonCrearUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -528,13 +677,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
     }
 
+    private void mostrarInternalFrame(JInternalFrame ventana) {
+        if (ventana != null) {
+            escritorio.removeAll();
+            escritorio.repaint();
+            ventana.setVisible(true);
+            escritorio.add(ventana);
+            escritorio.add(labelFondoLogo);
+            escritorio.add(labelFondoLogo);
+            escritorio.moveToFront(this);
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton botonCrearUsuario;
     private javax.swing.JButton botonIniciarSesion;
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JLabel labelFondoLogo;
     private javax.swing.JLabel labelFooter;
     private javax.swing.JMenu menuAdministracion;
     private javax.swing.JMenu menuAlumno;
@@ -543,6 +706,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemBorrarAlumno;
     private javax.swing.JMenuItem menuItemBorrarMateria;
     private javax.swing.JMenuItem menuItemBuscarAlumno;
+    private javax.swing.JMenuItem menuItemBuscarAlumno1;
+    private javax.swing.JMenuItem menuItemBuscarAlumno2;
     private javax.swing.JMenuItem menuItemBuscarMateria;
     private javax.swing.JMenuItem menuItemCrearAlumno;
     private javax.swing.JMenuItem menuItemCrearMateria;
@@ -553,5 +718,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemModifMateria;
     private javax.swing.JMenu menuMateria;
     private javax.swing.JMenu menuSalir;
+    private javax.swing.JPanel panelEscritorio;
     // End of variables declaration//GEN-END:variables
 }

@@ -102,7 +102,6 @@ public class ModificarMateria extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 260, 30));
 
         jtfID.setBackground(new java.awt.Color(230, 244, 245));
-        jtfID.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfID, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 110, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -114,11 +113,9 @@ public class ModificarMateria extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
         jtfNombre.setBackground(new java.awt.Color(230, 244, 245));
-        jtfNombre.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 180, -1));
 
         jtfAnio.setBackground(new java.awt.Color(230, 244, 245));
-        jtfAnio.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 180, -1));
 
         jbModificar.setBackground(new java.awt.Color(230, 244, 245));
@@ -140,7 +137,7 @@ public class ModificarMateria extends javax.swing.JInternalFrame {
         jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, -1, 30));
 
         jbBuscar.setBackground(new java.awt.Color(230, 244, 245));
-        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscarMateria.png"))); // NOI18N
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscarMateria.png"))); // NOI18N
         jbBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jbBuscarMouseEntered(evt);

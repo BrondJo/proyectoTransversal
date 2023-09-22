@@ -7,6 +7,9 @@ package vistas;
 
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 
 /**
  *
@@ -16,6 +19,7 @@ public class LoginView extends javax.swing.JFrame {
 
     private ImageIcon imgOjoOn = new ImageIcon(getClass().getResource("/imagenes/ojoOn.png"));
     private ImageIcon imgOjoOff = new ImageIcon(getClass().getResource("/imagenes/ojoOff.png"));
+    private JFrame ventana;
 
     /**
      * Creates new form LoginView
@@ -29,6 +33,17 @@ public class LoginView extends javax.swing.JFrame {
         passwordField.setBackground(new Color(0, 0, 0, 0));
     }
 
+    public LoginView(JFrame ventana) {
+        this.ventana = ventana;
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+
+        textFieldUsuario.setBackground(new Color(0, 0, 0, 0));
+        passwordField.setBackground(new Color(0, 0, 0, 0));
+        ventana.setEnabled(false);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,58 +53,116 @@ public class LoginView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelLinea = new javax.swing.JLabel();
+        panelFondo = new javax.swing.JPanel();
+        panelDerecha = new javax.swing.JPanel();
+        botonCerrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        botonIngreso = new javax.swing.JButton();
+        botonCrearCuenta = new javax.swing.JButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        textFieldUsuario = new javax.swing.JTextField();
         labelLinea1 = new javax.swing.JLabel();
-        labelIcoClave = new javax.swing.JLabel();
-        labelIcoUsuario = new javax.swing.JLabel();
         botonOjo = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
-        textFieldUsuario = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        labelIcoClave = new javax.swing.JLabel();
+        labelLinea = new javax.swing.JLabel();
+        labelIcoUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelLinea.setBackground(new java.awt.Color(0, 0, 0));
-        labelLinea.setOpaque(true);
-        getContentPane().add(labelLinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 220, 2));
+        panelFondo.setBackground(new java.awt.Color(230, 244, 245));
+        panelFondo.setBorder(null);
+        panelFondo.setMinimumSize(new java.awt.Dimension(750, 500));
+        panelFondo.setPreferredSize(new java.awt.Dimension(750, 500));
+        panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelLinea1.setBackground(new java.awt.Color(0, 0, 0));
-        labelLinea1.setOpaque(true);
-        getContentPane().add(labelLinea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 220, 2));
+        panelDerecha.setBackground(new java.awt.Color(59, 99, 133));
+        panelDerecha.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelIcoClave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/llave30px.png"))); // NOI18N
-        getContentPane().add(labelIcoClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 30, 30));
-
-        labelIcoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario30px.png"))); // NOI18N
-        getContentPane().add(labelIcoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 125, 30, 30));
-
-        botonOjo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ojoOff.png"))); // NOI18N
-        botonOjo.setBorderPainted(false);
-        botonOjo.setContentAreaFilled(false);
-        botonOjo.addActionListener(new java.awt.event.ActionListener() {
+        botonCerrar.setBackground(new java.awt.Color(59, 99, 133));
+        botonCerrar.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        botonCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        botonCerrar.setText("X");
+        botonCerrar.setContentAreaFilled(false);
+        botonCerrar.setOpaque(true);
+        botonCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botonCerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botonCerrarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botonCerrarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                botonCerrarMouseReleased(evt);
+            }
+        });
+        botonCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonOjoActionPerformed(evt);
+                botonCerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(botonOjo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 185, 32, 32));
+        panelDerecha.add(botonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 40, 40));
 
-        passwordField.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        passwordField.setForeground(new java.awt.Color(153, 153, 153));
-        passwordField.setText("CONTRASEÑA");
-        passwordField.setBorder(null);
-        passwordField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                passwordFieldFocusGained(evt);
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ulpLogotipoBlanco.png"))); // NOI18N
+        panelDerecha.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 450, -1));
+
+        panelFondo.add(panelDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 450, 700));
+
+        botonIngreso.setBackground(new java.awt.Color(59, 99, 133));
+        botonIngreso.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        botonIngreso.setForeground(new java.awt.Color(255, 255, 255));
+        botonIngreso.setText("INGRESAR");
+        botonIngreso.setToolTipText("");
+        botonIngreso.setContentAreaFilled(false);
+        botonIngreso.setOpaque(true);
+        botonIngreso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botonIngresoMouseEntered(evt);
             }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                passwordFieldFocusLost(evt);
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botonIngresoMouseExited(evt);
             }
         });
-        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 180, 40));
+        botonIngreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIngresoActionPerformed(evt);
+            }
+        });
+        panelFondo.add(botonIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 390, 260, 40));
 
+        botonCrearCuenta.setBackground(new java.awt.Color(59, 99, 133));
+        botonCrearCuenta.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        botonCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        botonCrearCuenta.setText("CREAR CUENTA");
+        botonCrearCuenta.setToolTipText("");
+        botonCrearCuenta.setContentAreaFilled(false);
+        botonCrearCuenta.setOpaque(true);
+        botonCrearCuenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botonCrearCuentaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botonCrearCuentaMouseExited(evt);
+            }
+        });
+        botonCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCrearCuentaActionPerformed(evt);
+            }
+        });
+        panelFondo.add(botonCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 460, 260, 40));
+
+        jCheckBox1.setForeground(new java.awt.Color(153, 153, 153));
+        jCheckBox1.setText("Recordarme");
+        panelFondo.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 100, -1));
+
+        textFieldUsuario.setBackground(new java.awt.Color(230, 244, 245));
         textFieldUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         textFieldUsuario.setForeground(new java.awt.Color(153, 153, 153));
         textFieldUsuario.setText("USUARIO");
@@ -102,15 +175,53 @@ public class LoginView extends javax.swing.JFrame {
                 textFieldUsuarioFocusLost(evt);
             }
         });
-        getContentPane().add(textFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 180, 40));
+        panelFondo.add(textFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 160, 220, 40));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        labelLinea1.setBackground(new java.awt.Color(0, 0, 0));
+        labelLinea1.setOpaque(true);
+        panelFondo.add(labelLinea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 270, 260, 2));
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 310, 500));
+        botonOjo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ojoOff.png"))); // NOI18N
+        botonOjo.setBorderPainted(false);
+        botonOjo.setContentAreaFilled(false);
+        botonOjo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonOjoActionPerformed(evt);
+            }
+        });
+        panelFondo.add(botonOjo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 235, 32, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 500));
+        passwordField.setBackground(new java.awt.Color(230, 244, 245));
+        passwordField.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        passwordField.setForeground(new java.awt.Color(153, 153, 153));
+        passwordField.setText("CONTRASEÑA");
+        passwordField.setBorder(null);
+        passwordField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passwordFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passwordFieldFocusLost(evt);
+            }
+        });
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
+        panelFondo.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 230, 220, 40));
+
+        labelIcoClave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/llave30px.png"))); // NOI18N
+        panelFondo.add(labelIcoClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 230, -1, -1));
+
+        labelLinea.setBackground(new java.awt.Color(0, 0, 0));
+        labelLinea.setOpaque(true);
+        panelFondo.add(labelLinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 200, 260, 2));
+
+        labelIcoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario30px.png"))); // NOI18N
+        panelFondo.add(labelIcoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 170, -1, -1));
+
+        getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -141,18 +252,92 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_textFieldUsuarioFocusLost
 
     private void passwordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFieldFocusGained
-        if (!passwordField.getText().equals("")) {
+       int largo = passwordField.getPassword().length;
+        if(largo > 0){
+
             passwordField.setText("");
             passwordField.setForeground(Color.BLACK);
         }
     }//GEN-LAST:event_passwordFieldFocusGained
 
     private void passwordFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFieldFocusLost
-        if (passwordField.getText().equals("")) {
+        int largo = passwordField.getPassword().length;
+        char[] caracteres = new char[largo];
+        if(largo == 0){
             passwordField.setText("CONTRASEÑA");
             passwordField.setForeground(Color.gray);
         }
+//        for (int i = 0; i < largo ; i++) {
+//            if(caracteres [i] ==  ){
+//                
+//            }
+//        }
+//        passwordField.getPassword().equals("")) {
+//            passwordField.setText("CONTRASEÑA");
+//            passwordField.setForeground(Color.gray);
+        
+//        if (passwordField.getText().equals("")) {
+//            passwordField.setText("CONTRASEÑA");
+//            passwordField.setForeground(Color.gray);
+//        }
     }//GEN-LAST:event_passwordFieldFocusLost
+
+    private void botonCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCerrarMouseEntered
+        botonCerrar.setBackground(new Color(170, 194, 205));
+    }//GEN-LAST:event_botonCerrarMouseEntered
+
+    private void botonCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCerrarMouseExited
+        botonCerrar.setBackground(new Color(59, 99, 133));
+    }//GEN-LAST:event_botonCerrarMouseExited
+
+    private void botonCerrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCerrarMousePressed
+        botonCerrar.setBackground(new Color(59, 99, 133));
+    }//GEN-LAST:event_botonCerrarMousePressed
+
+    private void botonCerrarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCerrarMouseReleased
+        botonCerrar.setBackground(new Color(59, 99, 133));
+    }//GEN-LAST:event_botonCerrarMouseReleased
+
+    private void botonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarActionPerformed
+        ventana.setEnabled(true);
+        this.dispose();
+    }//GEN-LAST:event_botonCerrarActionPerformed
+
+    private void botonIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresoActionPerformed
+        System.out.println(textFieldUsuario.getText());
+        if (textFieldUsuario.getText().equals("") || textFieldUsuario.getText().equals("USUARIO")) {
+            JOptionPane.showMessageDialog(this, "Complete los datos", "Campos vacios", 0);
+            System.out.println("Ingrese usuario y contraseña");
+        } else {
+
+        }
+    }//GEN-LAST:event_botonIngresoActionPerformed
+
+    private void botonIngresoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIngresoMouseEntered
+        botonIngreso.setBackground(new Color(170, 194, 205));
+    }//GEN-LAST:event_botonIngresoMouseEntered
+
+    private void botonIngresoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIngresoMouseExited
+        botonIngreso.setBackground(new Color(59, 99, 133));
+    }//GEN-LAST:event_botonIngresoMouseExited
+
+    private void botonCrearCuentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCrearCuentaMouseEntered
+        botonCrearCuenta.setBackground(new Color(170, 194, 205));
+    }//GEN-LAST:event_botonCrearCuentaMouseEntered
+
+    private void botonCrearCuentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCrearCuentaMouseExited
+        botonCrearCuenta.setBackground(new Color(59, 99, 133));
+    }//GEN-LAST:event_botonCrearCuentaMouseExited
+
+    private void botonCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearCuentaActionPerformed
+        this.dispose();
+        new RegistroView(ventana).setVisible(true);
+        
+    }//GEN-LAST:event_botonCrearCuentaActionPerformed
+
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,6 +366,8 @@ public class LoginView extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -191,13 +378,18 @@ public class LoginView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonCerrar;
+    private javax.swing.JButton botonCrearCuenta;
+    private javax.swing.JButton botonIngreso;
     private javax.swing.JButton botonOjo;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelIcoClave;
     private javax.swing.JLabel labelIcoUsuario;
     private javax.swing.JLabel labelLinea;
     private javax.swing.JLabel labelLinea1;
+    private javax.swing.JPanel panelDerecha;
+    private javax.swing.JPanel panelFondo;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField textFieldUsuario;
     // End of variables declaration//GEN-END:variables
