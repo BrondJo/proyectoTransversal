@@ -191,7 +191,7 @@ public class InscripcionData {
     }
     public List<Alumno> obtenerAlumnosXMateria(int idMateria){
     List<Alumno> alumnos=new ArrayList<Alumno>();
-    String sql="SELECT inscripcion.idAlumno, apellido, nombre FROM alumno, inscripcion "
+    String sql="SELECT inscripcion.idAlumno, apellido, nombre, dni FROM alumno, inscripcion "
             + "WHERE inscripcion.idAlumno=alumno.idAlumno AND idMateria=? ";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
@@ -200,6 +200,7 @@ public class InscripcionData {
             Alumno alumno;
             while (rs.next()) {                
                 alumno= new Alumno();
+                alumno.setDni(rs.getInt("dni"));
                 alumno.setId(rs.getInt("idAlumno"));             
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre( rs.getString("nombre"));

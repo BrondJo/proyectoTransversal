@@ -54,6 +54,7 @@ public class MateriaData {
                 mat.setNombre(rs.getString("nombre"));
                 mat.setAnio(rs.getInt("año"));
                 mat.setEstado(rs.getBoolean("estado"));
+                mat.setId(id);
             } else {
                 JOptionPane.showMessageDialog(null, "No existe la materia");
             }
@@ -102,6 +103,26 @@ public class MateriaData {
     public List<Materia> listarMaterias() {
         List<Materia> materias = new ArrayList<>();
         String sql = "SELECT * FROM materia WHERE estado = 1";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Materia mat = new Materia();
+                mat.setId(rs.getInt("idMateria"));
+                mat.setNombre(rs.getString("nombre"));
+                mat.setAnio(rs.getInt("año"));
+                mat.setEstado(rs.getBoolean("estado"));
+                materias.add(mat);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al trabajar con la tabla materia. " + ex.getMessage());
+        }
+        return materias;
+    }
+    public List<Materia> listarMateriasInactivas() {
+        List<Materia> materias = new ArrayList<>();
+        String sql = "SELECT * FROM materia WHERE estado = 0";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();

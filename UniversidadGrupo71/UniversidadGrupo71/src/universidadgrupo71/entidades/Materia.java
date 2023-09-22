@@ -2,7 +2,7 @@
 
 package universidadgrupo71.entidades;
 
-public class Materia {
+public class Materia implements Comparable<Materia>{
     
     private int id;
     private String nombre;
@@ -59,6 +59,13 @@ public class Materia {
     @Override
     public String toString() {
         return this.nombre + " " + this.anio;
+    }
+
+
+
+    @Override
+    public int compareTo(Materia materia) {
+        return this.id - materia.getId();
     }
     
     
