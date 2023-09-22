@@ -62,7 +62,7 @@ public class CrearMateria extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(51, 51, 255));
         setClosable(true);
         setTitle("Materia");
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregarMateria.png"))); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregarMateria.png"))); // NOI18N
         setVisible(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -78,24 +78,29 @@ public class CrearMateria extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 40));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NOMBRE");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 110, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("AÑO");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 80, 20));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("ESTADO");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, 20));
 
         buttonGroup1.add(jrbActivo);
         jrbActivo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jrbActivo.setForeground(new java.awt.Color(0, 0, 0));
         jrbActivo.setText("ACTIVA");
         jPanel1.add(jrbActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
 
         buttonGroup1.add(jrbInactivo);
         jrbInactivo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jrbInactivo.setForeground(new java.awt.Color(0, 0, 0));
         jrbInactivo.setText("INACTIVA");
         jPanel1.add(jrbInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
 
@@ -118,9 +123,11 @@ public class CrearMateria extends javax.swing.JInternalFrame {
         jPanel1.add(jbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, -1, -1));
 
         jtfNombre.setBackground(new java.awt.Color(230, 244, 245));
+        jtfNombre.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 220, -1));
 
         jtfAnio.setBackground(new java.awt.Color(230, 244, 245));
+        jtfAnio.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 220, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 340));
