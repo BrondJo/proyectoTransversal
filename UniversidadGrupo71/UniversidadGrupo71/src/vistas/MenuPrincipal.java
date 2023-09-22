@@ -41,8 +41,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio = new javax.swing.JDesktopPane();
         botonCrearUsuario = new javax.swing.JButton();
         botonIniciarSesion = new javax.swing.JButton();
-        labelFooter = new javax.swing.JLabel();
         labelFondoLogo = new javax.swing.JLabel();
+        labelFooter = new javax.swing.JLabel();
         barraMenu = new javax.swing.JMenuBar();
         menuAlumno = new javax.swing.JMenu();
         menuItemCrearAlumno = new javax.swing.JMenuItem();
@@ -133,22 +133,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        labelFooter.setBackground(new java.awt.Color(15, 63, 119));
-        labelFooter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelFooter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/footerUlpVirtual.png"))); // NOI18N
-        labelFooter.setToolTipText("");
-        labelFooter.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        labelFooter.setMaximumSize(null);
-        labelFooter.setMinimumSize(null);
-        labelFooter.setName(""); // NOI18N
-        labelFooter.setOpaque(true);
-        labelFooter.setPreferredSize(null);
-
         labelFondoLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoUlp.png"))); // NOI18N
 
         escritorio.setLayer(botonCrearUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(botonIniciarSesion, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        escritorio.setLayer(labelFooter, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(labelFondoLogo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
@@ -162,10 +150,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelFooter, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         escritorioLayout.setVerticalGroup(
@@ -178,13 +162,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addComponent(botonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(botonCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(labelFooter, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
-        panelEscritorio.add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
+        panelEscritorio.add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 570));
 
         getContentPane().add(panelEscritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        labelFooter.setBackground(new java.awt.Color(15, 63, 119));
+        labelFooter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFooter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/footerUlpVirtual.png"))); // NOI18N
+        labelFooter.setToolTipText("");
+        labelFooter.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        labelFooter.setMaximumSize(null);
+        labelFooter.setMinimumSize(null);
+        labelFooter.setName(""); // NOI18N
+        labelFooter.setOpaque(true);
+        labelFooter.setPreferredSize(null);
+        getContentPane().add(labelFooter, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 1200, -1));
 
         barraMenu.setBackground(new java.awt.Color(15, 63, 119));
         barraMenu.setBorder(null);
@@ -684,6 +679,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             ventana.setVisible(true);
             escritorio.add(ventana);
             escritorio.add(labelFondoLogo);
+            escritorio.add(labelFooter);
             escritorio.moveToFront(this);
         }
     }
