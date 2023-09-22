@@ -684,7 +684,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             ventana.setVisible(true);
             escritorio.add(ventana);
             escritorio.add(labelFondoLogo);
-            escritorio.add(labelFondoLogo);
             escritorio.moveToFront(this);
         }
     }
