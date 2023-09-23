@@ -58,9 +58,6 @@ public class CrearAlumno extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         calendario = new com.toedter.calendar.JDateChooser();
-        jLabel6 = new javax.swing.JLabel();
-        jrbActivo = new javax.swing.JRadioButton();
-        jrbInactivo = new javax.swing.JRadioButton();
         jbCrear = new javax.swing.JButton();
         jtfNombre = new javax.swing.JTextField();
         jtfApellido = new javax.swing.JTextField();
@@ -103,20 +100,6 @@ public class CrearAlumno extends javax.swing.JInternalFrame {
         calendario.setBackground(new java.awt.Color(230, 244, 245));
         jPanel1.add(calendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 220, -1));
 
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel6.setText("ESTADO");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, 20));
-
-        buttonGroup1.add(jrbActivo);
-        jrbActivo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jrbActivo.setText("ACTIVO");
-        jPanel1.add(jrbActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
-
-        buttonGroup1.add(jrbInactivo);
-        jrbInactivo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jrbInactivo.setText("INACTIVO");
-        jPanel1.add(jrbInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
-
         jbCrear.setBackground(new java.awt.Color(230, 244, 245));
         jbCrear.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jbCrear.setText("CREAR");
@@ -133,7 +116,7 @@ public class CrearAlumno extends javax.swing.JInternalFrame {
                 jbCrearActionPerformed(evt);
             }
         });
-        jPanel1.add(jbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, -1, -1));
+        jPanel1.add(jbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, -1, -1));
 
         jtfNombre.setBackground(new java.awt.Color(230, 244, 245));
         jPanel1.add(jtfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 220, -1));
@@ -157,19 +140,13 @@ public class CrearAlumno extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Complete los campos vacíos");
         } else {
             try {
-                boolean estado;
                 String nombre = jtfNombre.getText();
                 String apellido = jtfApellido.getText();
                 int dni = Integer.valueOf(jtfDni.getText());
                 LocalDate fecha = calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-                if (jrbActivo.isSelected()) {
-                    estado = true;
-                } else {
-                    estado = false;
-                }
                 int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro de crear este alumno?", "Confirmación", JOptionPane.YES_NO_OPTION);
                 if(resp == JOptionPane.YES_NO_OPTION){
-                Alumno alumno = new Alumno(dni, apellido, nombre, fecha, estado);
+                Alumno alumno = new Alumno(dni, apellido, nombre, fecha, true);
                 AlumnoData alu = new AlumnoData();
                 alu.guardarAlumno(alumno);
                 jtfNombre.setText("");
@@ -207,11 +184,8 @@ public class CrearAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbCrear;
-    private javax.swing.JRadioButton jrbActivo;
-    private javax.swing.JRadioButton jrbInactivo;
     private javax.swing.JTextField jtfApellido;
     private javax.swing.JTextField jtfDni;
     private javax.swing.JTextField jtfNombre;
