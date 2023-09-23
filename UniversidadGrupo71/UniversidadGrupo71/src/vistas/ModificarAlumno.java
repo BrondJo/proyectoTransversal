@@ -100,7 +100,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Alumno");
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editarUsuario.png"))); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editarUsuario.png"))); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

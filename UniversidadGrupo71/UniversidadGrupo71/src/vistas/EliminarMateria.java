@@ -91,7 +91,7 @@ public class EliminarMateria extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Materia");
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminarMateria.png"))); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminarMateria.png"))); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -107,7 +107,6 @@ public class EliminarMateria extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 200, 30));
 
         jtfID.setBackground(new java.awt.Color(230, 244, 245));
-        jtfID.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfID, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 110, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -119,11 +118,9 @@ public class EliminarMateria extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
         jtfNombre.setBackground(new java.awt.Color(230, 244, 245));
-        jtfNombre.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 180, -1));
 
         jtfAnio.setBackground(new java.awt.Color(230, 244, 245));
-        jtfAnio.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 180, -1));
 
         jbEliminar.setBackground(new java.awt.Color(230, 244, 245));

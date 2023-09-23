@@ -93,7 +93,7 @@ public class EliminarAlumno extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Alumno");
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminarUsuario.png"))); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminarUsuario.png"))); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -109,7 +109,6 @@ public class EliminarAlumno extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 180, 30));
 
         jtfID.setBackground(new java.awt.Color(230, 244, 245));
-        jtfID.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfID, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 110, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -125,15 +124,12 @@ public class EliminarAlumno extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         jtfNombre.setBackground(new java.awt.Color(230, 244, 245));
-        jtfNombre.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 180, -1));
 
         jtfApellido.setBackground(new java.awt.Color(230, 244, 245));
-        jtfApellido.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 180, -1));
 
         jtfDni.setBackground(new java.awt.Color(230, 244, 245));
-        jtfDni.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 180, -1));
 
         jbEliminar.setBackground(new java.awt.Color(230, 244, 245));
@@ -176,7 +172,6 @@ public class EliminarAlumno extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 90, -1));
 
         calendario.setBackground(new java.awt.Color(230, 244, 245));
-        calendario.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(calendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 180, -1));
 
         jbLimpiar.setBackground(new java.awt.Color(230, 244, 245));

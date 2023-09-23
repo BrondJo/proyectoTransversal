@@ -9,7 +9,7 @@
     <Property name="closable" type="boolean" value="true"/>
     <Property name="title" type="java.lang.String" value="Materia"/>
     <Property name="frameIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-      <Image iconType="3" name="/Img/editarMateria3.png"/>
+      <Image iconType="3" name="/imagenes/editarMateria3.png"/>
     </Property>
   </Properties>
   <SyntheticProperties>

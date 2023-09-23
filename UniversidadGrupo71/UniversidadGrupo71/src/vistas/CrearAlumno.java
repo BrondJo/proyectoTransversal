@@ -69,7 +69,7 @@ public class CrearAlumno extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(51, 51, 255));
         setClosable(true);
         setTitle("Alumno");
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregarUsuario.png"))); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregarUsuario.png"))); // NOI18N
         setVisible(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -85,43 +85,35 @@ public class CrearAlumno extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 40));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NOMBRE");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 110, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("APELLIDO");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 127, 80, 20));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("N° DNI");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("FECHA NAC.");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 90, 50));
 
         calendario.setBackground(new java.awt.Color(230, 244, 245));
-        calendario.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(calendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 220, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("ESTADO");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, 20));
 
         buttonGroup1.add(jrbActivo);
         jrbActivo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jrbActivo.setForeground(new java.awt.Color(0, 0, 0));
         jrbActivo.setText("ACTIVO");
         jPanel1.add(jrbActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
 
         buttonGroup1.add(jrbInactivo);
         jrbInactivo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jrbInactivo.setForeground(new java.awt.Color(0, 0, 0));
         jrbInactivo.setText("INACTIVO");
         jPanel1.add(jrbInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
@@ -144,15 +136,12 @@ public class CrearAlumno extends javax.swing.JInternalFrame {
         jPanel1.add(jbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, -1, -1));
 
         jtfNombre.setBackground(new java.awt.Color(230, 244, 245));
-        jtfNombre.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 220, -1));
 
         jtfApellido.setBackground(new java.awt.Color(230, 244, 245));
-        jtfApellido.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 220, -1));
 
         jtfDni.setBackground(new java.awt.Color(230, 244, 245));
-        jtfDni.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jtfDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 220, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 350));

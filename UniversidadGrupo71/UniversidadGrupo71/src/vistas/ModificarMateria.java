@@ -86,7 +86,7 @@ public class ModificarMateria extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Materia");
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editarMateria3.png"))); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editarMateria3.png"))); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
