@@ -151,7 +151,7 @@ public class EliminarAlumno extends javax.swing.JInternalFrame {
         jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, -1, 30));
 
         jbBuscar.setBackground(new java.awt.Color(230, 244, 245));
-        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscarUsuario.png"))); // NOI18N
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscarUsuario.png"))); // NOI18N
         jbBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jbBuscarMouseEntered(evt);
