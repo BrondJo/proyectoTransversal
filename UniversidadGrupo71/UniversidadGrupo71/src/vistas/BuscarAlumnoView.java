@@ -9,8 +9,8 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import universidadgrupo71.entidades.Alumno;
-import universidadgrupo71.entidades.Inscripcion;
+import Entidades.Alumno;
+import Entidades.Inscripcion;
 
 
 

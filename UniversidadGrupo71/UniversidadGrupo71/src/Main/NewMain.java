@@ -8,8 +8,8 @@ import AccesoADatos.MateriaData;
 import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.Month;
-import universidadgrupo71.entidades.Alumno;
-import universidadgrupo71.entidades.Inscripcion;
+import Entidades.Alumno;
+import Entidades.Inscripcion;
 
 
 public class NewMain {

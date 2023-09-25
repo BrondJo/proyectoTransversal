@@ -5,7 +5,7 @@
 package vistas;
 
 import AccesoADatos.AlumnoData;
-import universidadgrupo71.entidades.Alumno;
+import Entidades.Alumno;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

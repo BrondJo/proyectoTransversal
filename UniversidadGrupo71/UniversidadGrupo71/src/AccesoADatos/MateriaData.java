@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.util.List;
-import universidadgrupo71.entidades.Materia;
+import Entidades.Materia;
 
 public class MateriaData {
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
-import universidadgrupo71.entidades.Alumno;
+import Entidades.Alumno;
 
 public class AlumnoData {
 

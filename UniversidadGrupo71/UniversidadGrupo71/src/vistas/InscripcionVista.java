@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import universidadgrupo71.entidades.Materia;
-import universidadgrupo71.entidades.Inscripcion;
+import Entidades.Materia;
+import Entidades.Inscripcion;
 
 public class InscripcionVista extends javax.swing.JInternalFrame {
 private DefaultTableModel modelo=new DefaultTableModel();

@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import universidadgrupo71.entidades.Alumno;
-import universidadgrupo71.entidades.Inscripcion;
-import universidadgrupo71.entidades.Materia;
+import Entidades.Alumno;
+import Entidades.Inscripcion;
+import Entidades.Materia;
 
 public class InscripcionData {
     private Connection con;
@@ -88,6 +88,7 @@ public class InscripcionData {
                 ins.setId(rs.getInt("idInscripto"));             
                 ins.setAlumno(alumData.buscarAlumnoId(id));
                 ins.setMateria(matData.buscarMateria(rs.getInt("idMateria")));
+                ins.setNota(rs.getInt("nota"));
                 inscripciones.add(ins);
             }
             ps.close();

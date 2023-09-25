@@ -8,6 +8,8 @@ package vistas;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 /**
  *
@@ -26,6 +28,94 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setSize(1200,820);
+    }
+
+    public JMenu getjMenu2() {
+        return jMenu2;
+    }
+
+    public JMenu getMenuAdministracion() {
+        return menuAdministracion;
+    }
+
+    public JMenu getMenuAlumno() {
+        return menuAlumno;
+    }
+
+    public JMenu getMenuConsultas() {
+        return menuConsultas;
+    }
+
+    public JMenuItem getMenuItemAsignNota() {
+        return menuItemAsignNota;
+    }
+
+    public JMenuItem getMenuItemBorrarAlumno() {
+        return menuItemBorrarAlumno;
+    }
+
+    public JMenuItem getMenuItemBorrarMateria() {
+        return menuItemBorrarMateria;
+    }
+
+    public JMenuItem getMenuItemBuscarAlumno() {
+        return menuItemBuscarAlumno;
+    }
+
+    public JMenuItem getMenuItemBuscarAlumno1() {
+        return menuItemMiCuenta;
+    }
+
+    public JMenuItem getMenuItemBuscarAlumno2() {
+        return menuItemCerrarSesion;
+    }
+
+    public JMenuItem getMenuItemBuscarAlumno3() {
+        return menuItemOp;
+    }
+
+    public JMenuItem getMenuItemBuscarMateria() {
+        return menuItemBuscarMateria;
+    }
+
+    public JMenuItem getMenuItemCrearAlumno() {
+        return menuItemCrearAlumno;
+    }
+
+    public JMenuItem getMenuItemCrearMateria() {
+        return menuItemCrearMateria;
+    }
+
+    public JMenuItem getMenuItemInscribir() {
+        return menuItemInscribir;
+    }
+
+    public JMenuItem getMenuItemListarAlumno() {
+        return menuItemListarAlumno;
+    }
+
+    public JMenuItem getMenuItemListarMateria() {
+        return menuItemListarMateria;
+    }
+
+    public JMenuItem getMenuItemModifAlumno() {
+        return menuItemModifAlumno;
+    }
+
+    public JMenuItem getMenuItemModifMateria() {
+        return menuItemModifMateria;
+    }
+
+    public JMenu getMenuMateria() {
+        return menuMateria;
+    }
+
+    public JMenu getMenuOpciones() {
+        return menuOpciones;
+    }
+
+    public JMenu getMenuUsuario() {
+        return menuUsuario;
     }
 
     /**
@@ -61,10 +151,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemBuscarMateria = new javax.swing.JMenuItem();
         menuItemListarMateria = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        menuItemBuscarAlumno1 = new javax.swing.JMenuItem();
-        menuItemBuscarAlumno2 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        menuUsuario = new javax.swing.JMenu();
+        menuItemMiCuenta = new javax.swing.JMenuItem();
+        menuItemCerrarSesion = new javax.swing.JMenuItem();
+        menuOpciones = new javax.swing.JMenu();
+        menuItemOp = new javax.swing.JMenuItem();
         menuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,7 +165,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1200, 750));
         setPreferredSize(new java.awt.Dimension(1200, 750));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         panelEscritorio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -167,7 +258,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         panelEscritorio.add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 570));
 
-        getContentPane().add(panelEscritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(panelEscritorio);
+        panelEscritorio.setBounds(0, 0, 1200, 570);
 
         labelFooter.setBackground(new java.awt.Color(15, 63, 119));
         labelFooter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -179,7 +271,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         labelFooter.setName(""); // NOI18N
         labelFooter.setOpaque(true);
         labelFooter.setPreferredSize(null);
-        getContentPane().add(labelFooter, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 1200, -1));
+        getContentPane().add(labelFooter);
+        labelFooter.setBounds(0, 570, 1200, 136);
 
         barraMenu.setBackground(new java.awt.Color(15, 63, 119));
         barraMenu.setBorder(null);
@@ -434,33 +527,42 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2.setPreferredSize(new java.awt.Dimension(200, 55));
         barraMenu.add(jMenu2);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cuenta.png"))); // NOI18N
-        jMenu1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jMenu1.setPreferredSize(new java.awt.Dimension(55, 19));
+        menuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cuenta.png"))); // NOI18N
+        menuUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        menuUsuario.setPreferredSize(new java.awt.Dimension(55, 19));
 
-        menuItemBuscarAlumno1.setBackground(new java.awt.Color(87, 116, 134));
-        menuItemBuscarAlumno1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        menuItemBuscarAlumno1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario30px.png"))); // NOI18N
-        menuItemBuscarAlumno1.setText("Mi cuenta");
-        menuItemBuscarAlumno1.setOpaque(true);
-        menuItemBuscarAlumno1.setPreferredSize(new java.awt.Dimension(200, 55));
-        jMenu1.add(menuItemBuscarAlumno1);
+        menuItemMiCuenta.setBackground(new java.awt.Color(87, 116, 134));
+        menuItemMiCuenta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        menuItemMiCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario30px.png"))); // NOI18N
+        menuItemMiCuenta.setText("Mi cuenta");
+        menuItemMiCuenta.setOpaque(true);
+        menuItemMiCuenta.setPreferredSize(new java.awt.Dimension(200, 55));
+        menuUsuario.add(menuItemMiCuenta);
 
-        menuItemBuscarAlumno2.setBackground(new java.awt.Color(87, 116, 134));
-        menuItemBuscarAlumno2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        menuItemBuscarAlumno2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/apagar.png"))); // NOI18N
-        menuItemBuscarAlumno2.setText("Cerrar sesión");
-        menuItemBuscarAlumno2.setOpaque(true);
-        menuItemBuscarAlumno2.setPreferredSize(new java.awt.Dimension(200, 55));
-        jMenu1.add(menuItemBuscarAlumno2);
+        menuItemCerrarSesion.setBackground(new java.awt.Color(87, 116, 134));
+        menuItemCerrarSesion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        menuItemCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/apagar.png"))); // NOI18N
+        menuItemCerrarSesion.setText("Cerrar sesión");
+        menuItemCerrarSesion.setOpaque(true);
+        menuItemCerrarSesion.setPreferredSize(new java.awt.Dimension(200, 55));
+        menuUsuario.add(menuItemCerrarSesion);
 
-        barraMenu.add(jMenu1);
+        barraMenu.add(menuUsuario);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/opcionesIco.png"))); // NOI18N
-        jMenu3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jMenu3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jMenu3.setPreferredSize(new java.awt.Dimension(50, 53));
-        barraMenu.add(jMenu3);
+        menuOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/opcionesIco.png"))); // NOI18N
+        menuOpciones.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        menuOpciones.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        menuOpciones.setPreferredSize(new java.awt.Dimension(50, 53));
+
+        menuItemOp.setBackground(new java.awt.Color(87, 116, 134));
+        menuItemOp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        menuItemOp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario30px.png"))); // NOI18N
+        menuItemOp.setText("Mi cuenta");
+        menuItemOp.setOpaque(true);
+        menuItemOp.setPreferredSize(new java.awt.Dimension(200, 55));
+        menuOpciones.add(menuItemOp);
+
+        barraMenu.add(menuOpciones);
 
         menuSalir.setBackground(new java.awt.Color(15, 63, 119));
         menuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.Ico.png"))); // NOI18N
@@ -677,6 +779,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             escritorio.removeAll();
             escritorio.repaint();
             ventana.setVisible(true);
+            ventana.setLocation(escritorio.getWidth()/2-ventana.getWidth()/2, 70);
             escritorio.add(ventana);
             escritorio.add(labelFondoLogo);
             escritorio.add(labelFooter);
@@ -689,9 +792,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botonCrearUsuario;
     private javax.swing.JButton botonIniciarSesion;
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JLabel labelFondoLogo;
     private javax.swing.JLabel labelFooter;
     private javax.swing.JMenu menuAdministracion;
@@ -701,18 +802,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemBorrarAlumno;
     private javax.swing.JMenuItem menuItemBorrarMateria;
     private javax.swing.JMenuItem menuItemBuscarAlumno;
-    private javax.swing.JMenuItem menuItemBuscarAlumno1;
-    private javax.swing.JMenuItem menuItemBuscarAlumno2;
     private javax.swing.JMenuItem menuItemBuscarMateria;
+    private javax.swing.JMenuItem menuItemCerrarSesion;
     private javax.swing.JMenuItem menuItemCrearAlumno;
     private javax.swing.JMenuItem menuItemCrearMateria;
     private javax.swing.JMenuItem menuItemInscribir;
     private javax.swing.JMenuItem menuItemListarAlumno;
     private javax.swing.JMenuItem menuItemListarMateria;
+    private javax.swing.JMenuItem menuItemMiCuenta;
     private javax.swing.JMenuItem menuItemModifAlumno;
     private javax.swing.JMenuItem menuItemModifMateria;
+    private javax.swing.JMenuItem menuItemOp;
     private javax.swing.JMenu menuMateria;
+    private javax.swing.JMenu menuOpciones;
     private javax.swing.JMenu menuSalir;
+    private javax.swing.JMenu menuUsuario;
     private javax.swing.JPanel panelEscritorio;
     // End of variables declaration//GEN-END:variables
 }

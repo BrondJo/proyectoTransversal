@@ -1,6 +1,6 @@
 
 
-package universidadgrupo71.entidades;
+package Entidades;
 
 public class Inscripcion {
     

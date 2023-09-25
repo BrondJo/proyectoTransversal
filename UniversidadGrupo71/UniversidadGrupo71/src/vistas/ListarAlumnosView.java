@@ -5,7 +5,7 @@ import AccesoADatos.AlumnoData;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import universidadgrupo71.entidades.Alumno;
+import Entidades.Alumno;
 
 
 public class ListarAlumnosView extends javax.swing.JInternalFrame {

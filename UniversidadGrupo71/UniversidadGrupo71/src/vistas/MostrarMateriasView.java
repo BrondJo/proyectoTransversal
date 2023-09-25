@@ -9,16 +9,22 @@ import AccesoADatos.AlumnoData;
 import AccesoADatos.InscripcionData;
 import AccesoADatos.MateriaData;
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.TreeSet;
-import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
-import universidadgrupo71.entidades.Alumno;
-import universidadgrupo71.entidades.Inscripcion;
-import universidadgrupo71.entidades.Materia;
+import Entidades.Materia;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,8 +37,6 @@ public class MostrarMateriasView extends javax.swing.JInternalFrame {
     private AlumnoData aluData = new AlumnoData();
     private MateriaData matData = new MateriaData();
     private InscripcionData insData = new InscripcionData(matData, aluData);
-    private int idMateria;
-    private String nota;
 
     /**
      * Creates new form BuscarMateriaView
@@ -188,11 +192,12 @@ public class MostrarMateriasView extends javax.swing.JInternalFrame {
         tablaMaterias.setShowHorizontalLines(true);
         jScrollPane1.setViewportView(tablaMaterias);
 
-        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 590, 240));
+        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 590, 180));
 
         comboBoxOrdenar.setBackground(new java.awt.Color(223, 232, 225));
         comboBoxOrdenar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        comboBoxOrdenar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ordenar por ID", "Ordenar A-Z", "Ordenar Z-A", "Por cantidad de alumnos (ASC)", "Por cantidad de alumnos (DES)", "Por año" }));
+        comboBoxOrdenar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccione Orden>", "Por Nro ID", "Por Nombre A-Z", "Por nombre Z-A", "Por Año", "Por cantidad de alumnos (ASC)", "Por cantidad de alumnos (DES)" }));
+        comboBoxOrdenar.setToolTipText("");
         comboBoxOrdenar.setOpaque(true);
         comboBoxOrdenar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,6 +210,11 @@ public class MostrarMateriasView extends javax.swing.JInternalFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdfIco.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         panelFondo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 60, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,8 +256,13 @@ public class MostrarMateriasView extends javax.swing.JInternalFrame {
     private void radioButtonActivasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonActivasActionPerformed
         if (radioButtonActivas.isSelected()) {
             radioButtonInactivas.setSelected(false);
+
+            comboBoxOrdenar.addItem("Por cantidad de alumnos (DES)");
+            comboBoxOrdenar.addItem("Por cantidad de alumnos (ASC)");
         } else {
             radioButtonInactivas.setSelected(true);
+            comboBoxOrdenar.removeItem("Por cantidad de alumnos (DES)");
+            comboBoxOrdenar.removeItem("Por cantidad de alumnos (ASC)");
         }
         ordenarMaterias();
     }//GEN-LAST:event_radioButtonActivasActionPerformed
@@ -255,8 +270,12 @@ public class MostrarMateriasView extends javax.swing.JInternalFrame {
     private void radioButtonInactivasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonInactivasActionPerformed
         if (radioButtonInactivas.isSelected()) {
             radioButtonActivas.setSelected(false);
+            comboBoxOrdenar.removeItem("Por cantidad de alumnos (DES)");
+            comboBoxOrdenar.removeItem("Por cantidad de alumnos (ASC)");
         } else {
             radioButtonActivas.setSelected(true);
+            comboBoxOrdenar.addItem("Por cantidad de alumnos (DES)");
+            comboBoxOrdenar.addItem("Por cantidad de alumnos (ASC)");
         }
         ordenarMaterias();
     }//GEN-LAST:event_radioButtonInactivasActionPerformed
@@ -264,6 +283,68 @@ public class MostrarMateriasView extends javax.swing.JInternalFrame {
     private void comboBoxOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxOrdenarActionPerformed
         ordenarMaterias();
     }//GEN-LAST:event_comboBoxOrdenarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        try {
+            Document documento = new Document();
+
+            String ruta = System.getProperty("user.home");
+            String ubicacion = "\\Desktop\\";
+            String nombreArchivo;
+            String extension = ".pdf";
+            if (radioButtonActivas.isSelected()) {
+                nombreArchivo = "Materias";
+            } else {
+                nombreArchivo = "Materias Inactivas";
+            }
+            if (comboBoxOrdenar.getSelectedIndex() != 0) {
+                nombreArchivo += " " + comboBoxOrdenar.getSelectedItem();
+            }
+
+            ImageIcon imgPdf = new ImageIcon(getClass().getResource("/imagenes/pdfPregunta.png"));
+
+            String nombreEspecificado = ruta + ubicacion + JOptionPane.showInputDialog(this,
+                    "Indique el nombre del archivo:\n" + ruta + ubicacion, nombreArchivo);
+            String ubicacionEspecificada = nombreEspecificado + extension;
+
+            try {
+                PdfWriter.getInstance(documento, new FileOutputStream(ubicacionEspecificada));
+            } catch (DocumentException ex) {
+                Logger.getLogger(MostrarMateriasView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            documento.open();
+            PdfPTable tabla = new PdfPTable(tablaMaterias.getColumnCount());
+            for (int i = 0; i < tablaMaterias.getColumnCount(); i++) {
+                System.out.println(tablaMaterias.getColumnName(i));
+                tabla.addCell(tablaMaterias.getColumnName(i));
+            }
+            //El for "j" recorre las filas de la tabla
+            //Por cada fila, el for "i" recorre cada una de las columnas y le asigna el valor obtenido de la tablaAlumnos
+            for (int j = 0; j < tablaMaterias.getRowCount(); j++) {
+                System.out.println("");
+                for (int i = 0; i < tablaMaterias.getColumnCount(); i++) {
+                    System.out.print(tablaMaterias.getValueAt(j, i).toString() + " ");
+                    tabla.addCell(tablaMaterias.getValueAt(j, i).toString());
+                }
+            }
+            try {
+                documento.add(tabla);
+
+            } catch (DocumentException ex) {
+                JOptionPane.showMessageDialog(this, ex, "No se encontró la carpeta", 0);
+                System.err.println(Arrays.toString(ex.getStackTrace()));
+            }
+            documento.close();
+            if (!nombreEspecificado.contains("null")) {
+                JOptionPane.showMessageDialog(null, "Busque el archivo en:\n" + ubicacionEspecificada, "Se descargó el archivo PDF", 1);
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, ex, "No se pudo crear el archivo", 0);
+            System.err.println(Arrays.toString(ex.getStackTrace()));
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
     private void ordenarMaterias() {
         String orden = (String) comboBoxOrdenar.getSelectedItem();
         List<Materia> materias;
@@ -271,9 +352,10 @@ public class MostrarMateriasView extends javax.swing.JInternalFrame {
             materias = matData.listarMaterias();
         } else {
             materias = matData.listarMateriasInactivas();
+            System.out.println(materias);
         }
         switch (orden) {
-            case "Ordenar A-Z":
+            case "Por Nombre A-Z":
                 materias.sort(new Comparator<Materia>() {
                     @Override
                     public int compare(Materia materia1, Materia materia2) {
@@ -281,7 +363,7 @@ public class MostrarMateriasView extends javax.swing.JInternalFrame {
                     }
                 });
                 break;
-            case "Ordenar Z-A":
+            case "Por Nombre Z-A":
                 materias.sort(new Comparator<Materia>() {
                     @Override
                     public int compare(Materia materia1, Materia materia2) {
@@ -290,7 +372,15 @@ public class MostrarMateriasView extends javax.swing.JInternalFrame {
                 });
                 Collections.reverse(materias);
                 break;
-            case "Por cantidad de alumnos":
+            case "Por Año":
+                materias.sort(new Comparator<Materia>() {
+                    @Override
+                    public int compare(Materia materia1, Materia materia2) {
+                        return materia1.getAnio() - materia2.getAnio();
+                    }
+                });
+                break;
+            case "Por cantidad de alumnos (ASC)":
                 materias.sort(new Comparator<Materia>() {
                     @Override
                     public int compare(Materia materia1, Materia materia2) {
@@ -300,16 +390,16 @@ public class MostrarMateriasView extends javax.swing.JInternalFrame {
                     }
                 });
                 break;
-            case "Por año":
+            case "Por cantidad de alumnos (DES)":
                 materias.sort(new Comparator<Materia>() {
                     @Override
                     public int compare(Materia materia1, Materia materia2) {
-                        return materia1.getAnio() - materia2.getAnio();
+                        int cantidad1 = insData.obtenerAlumnosXMateria(materia1.getId()).size();
+                        int cantidad2 = insData.obtenerAlumnosXMateria(materia2.getId()).size();
+                        return cantidad2 - cantidad1;
                     }
                 });
                 break;
-            default:
-                llenarTabla(materias);
         }
         llenarTabla(materias);
     }
@@ -317,6 +407,7 @@ public class MostrarMateriasView extends javax.swing.JInternalFrame {
     private void llenarTabla(List<Materia> materias) {
         limpiarTabla();
         modeloTablaActivas.setRowCount(0);
+        modeloTablaInactivas.setRowCount(0);
         if (radioButtonActivas.isSelected()) {
             tablaMaterias.setModel(modeloTablaActivas);
             for (Materia materia : materias) {
@@ -327,16 +418,29 @@ public class MostrarMateriasView extends javax.swing.JInternalFrame {
             }
         } else {
             tablaMaterias.setModel(modeloTablaInactivas);
-            for (Materia materia : matData.listarMaterias()) {
+            for (Materia materia : materias) {
                 if (!materia.isEstado()) {
                     modeloTablaInactivas.addRow(new Object[]{materia.getId(), materia.getNombre(), materia.getAnio()});
                 }
             }
         }
-        while (tablaMaterias.getRowCount() < 7) {
-            modeloTablaActivas.addRow(new Object[4]);
-            modeloTablaInactivas.addRow(new Object[3]);
+    }
+
+    private void limpiarTabla() {
+        int filas = modeloTablaActivas.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            modeloTablaActivas.removeRow(0);
         }
+        for (int i = 0; i < 4; i++) {
+            modeloTablaActivas.addRow(new Object[4]);
+        }
+    }
+
+    private void crearCabeceraInactivas() {
+        modeloTablaInactivas = new DefaultTableModel();
+        modeloTablaInactivas.addColumn("ID");
+        modeloTablaInactivas.addColumn("MATERIA");
+        modeloTablaInactivas.addColumn("AÑO");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -355,20 +459,4 @@ public class MostrarMateriasView extends javax.swing.JInternalFrame {
     private javax.swing.JTable tablaMaterias;
     // End of variables declaration//GEN-END:variables
 
-    private void limpiarTabla() {
-        int filas = modeloTablaActivas.getRowCount();
-        for (int i = 0; i < filas; i++) {
-            modeloTablaActivas.removeRow(0);
-        }
-        for (int i = 0; i < 4; i++) {
-            modeloTablaActivas.addRow(new Object[4]);
-        }
-    }
-
-    private void crearCabeceraInactivas() {
-        modeloTablaInactivas = new DefaultTableModel();
-        modeloTablaInactivas.addColumn("ID");
-        modeloTablaInactivas.addColumn("MATERIA");
-        modeloTablaInactivas.addColumn("AÑO");
-    }
 }

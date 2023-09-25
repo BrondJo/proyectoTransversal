@@ -1,0 +1,84 @@
+Crear Alumno
+
+Se puede ingresar texto en fecha
+Se pueden ingresar números en nombre y apellido
+se pueden ingresar mas de 50 caracteres(maximo 50 en bd)
+
+dni permite caracteres no numericos
+dni permite mas de 11 caracteres
+
+aunque todo esté lleno boton crear dice "Complete los datos vacios"
+
+
+
+
+Modificar Alumno
+mismas validaciones que crear alumno
+
+permite modificar alumno con dni 0 o un numero extremadamente grande
+
+Sugerencia
+los alumnos podrian ser seleccionados (ademas de ingresando su id o dni)
+seleccionando de un comboBox o tabla
+
+
+
+
+Borrar Alumno
+
+NumberFormatExeption no capturada en ingrese id con letra
+Los textField que muestran los campos son editables
+
+Sugerencia
+los alumnos a borrar podrian ser seleccionados de un comboBox o tabla
+
+
+
+
+Crear Materia
+
+
+
+
+
+Modificar Materia
+
+
+
+
+
+
+
+Borrar Materia
+
+
+
+
+
+Incripciones
+
+Si se ingresa id de alumno inexistente primero muestra las materias 
+disponibles y se puede seleccionar una, pero luego informa que no existe el alumno
+
+
+
+
+
+Buscar Alumnos
+
+NullPointerException al ingresar un numero id o dni que no existe 
+
+
+
+
+
+
+
+Listar Alumnos
+Diferencia caracteres con y sin tilde
+
+Sugerencia
+Boton mostrar todos para que muestre una lista completa
+
+
+
