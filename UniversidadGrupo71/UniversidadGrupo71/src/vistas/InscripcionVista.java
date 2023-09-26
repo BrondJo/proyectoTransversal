@@ -30,13 +30,13 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jtIdAlumno = new javax.swing.JTextField();
-        jbVerMaterias = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtMaterias = new javax.swing.JTable();
         jbInscripcion = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jtIdAlumno = new javax.swing.JTextField();
+        jbVerMaterias = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -61,28 +61,14 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        setBackground(new java.awt.Color(223, 232, 225));
         setClosable(true);
+        setTitle("Administración");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/administracionIco.png"))); // NOI18N
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setBackground(new java.awt.Color(170, 194, 205));
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("ID ALUMNO:");
-        jLabel3.setOpaque(true);
-
-        jtIdAlumno.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jtIdAlumno.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtIdAlumnoKeyReleased(evt);
-            }
-        });
-
-        jbVerMaterias.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jbVerMaterias.setText("Ver materias");
-        jbVerMaterias.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbVerMateriasActionPerformed(evt);
-            }
-        });
+        jPanel3.setBackground(new java.awt.Color(223, 232, 225));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jtMaterias.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jtMaterias.setModel(new javax.swing.table.DefaultTableModel(
@@ -95,13 +81,24 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtMaterias.getTableHeader().setReorderingAllowed(false);
         jtMaterias.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtMateriasMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jtMaterias);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 460, 154));
 
         jbInscripcion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jbInscripcion.setText("Inscribirme");
@@ -111,60 +108,49 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
                 jbInscripcionActionPerformed(evt);
             }
         });
+        jPanel3.add(jbInscripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, -1, 30));
+
+        jLabel3.setBackground(new java.awt.Color(170, 194, 205));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("ID ALUMNO:");
+        jLabel3.setOpaque(true);
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 150, 25));
+
+        jtIdAlumno.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jtIdAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtIdAlumnoActionPerformed(evt);
+            }
+        });
+        jtIdAlumno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtIdAlumnoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtIdAlumnoKeyTyped(evt);
+            }
+        });
+        jPanel3.add(jtIdAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 50, 25));
+
+        jbVerMaterias.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jbVerMaterias.setText("Ver materias");
+        jbVerMaterias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbVerMateriasActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jbVerMaterias, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, -1, -1));
 
         jLabel5.setBackground(new java.awt.Color(2, 64, 126));
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("COLOCAR CALIFICACIONES");
+        jLabel5.setText("INSCRIPCIONES");
         jLabel5.setOpaque(true);
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 600, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jbInscripcion)
-                .addGap(36, 36, 36))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jtIdAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                        .addGap(57, 57, 57)
-                        .addComponent(jbVerMaterias)
-                        .addGap(97, 97, 97))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbVerMaterias)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtIdAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(45, 45, 45)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jbInscripcion)
-                .addContainerGap(101, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -6, 600, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -199,13 +185,23 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
         limpiar();
     }//GEN-LAST:event_jtIdAlumnoKeyReleased
 
+    private void jtIdAlumnoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdAlumnoKeyTyped
+    char c= evt.getKeyChar();
+    if (c<'0'||c>'9')evt.consume();
+    jbInscripcion.setEnabled(false);   
+    }//GEN-LAST:event_jtIdAlumnoKeyTyped
+
+    private void jtIdAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIdAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtIdAlumnoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbInscripcion;
     private javax.swing.JButton jbVerMaterias;
@@ -223,9 +219,7 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
     
     public void cargarMaterias(int id){
         limpiar();
-    List <Materia> materias=new ArrayList<>();
-    materias = inscData.obtenerMateriasNoCursadas(id);
-        for (Materia materia : materias) {
+        for (Materia materia : inscData.obtenerMateriasNoCursadas(id)) {
             modelo.addRow(new Object[]{materia.getId(),materia.getNombre(),materia.getAnio()});
         }    
     }
