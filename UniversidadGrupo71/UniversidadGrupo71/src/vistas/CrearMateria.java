@@ -47,6 +47,7 @@ public class CrearMateria extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -114,7 +115,7 @@ public class CrearMateria extends javax.swing.JInternalFrame {
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
         // TODO add your handling code here:
-        if (jtfNombre.getText().isEmpty() || jtfAnio.getText().isEmpty()) {
+        if (jtfNombre.getText().isEmpty() || jtfAnio.getText().isEmpty() || buttonGroup1.getSelection() == null) {
             JOptionPane.showMessageDialog(null, "Complete los campos vacíos");
         } else {
             try {
@@ -128,6 +129,7 @@ public class CrearMateria extends javax.swing.JInternalFrame {
                     md.guardarMateria(mat);
                     jtfNombre.setText("");
                     jtfAnio.setText("");
+                    buttonGroup1.clearSelection();
                 } else if (resp == JOptionPane.NO_OPTION) {
                     JOptionPane.showMessageDialog(null, "Operación cancelada", "Información", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -150,6 +152,7 @@ public class CrearMateria extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

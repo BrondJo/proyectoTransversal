@@ -10,7 +10,6 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author joelb
@@ -227,14 +226,9 @@ public class ModificarMateria extends javax.swing.JInternalFrame {
                 int id = Integer.parseInt(jtfID.getText());
                 String nombre = jtfNombre.getText();
                 int anio = Integer.parseInt(jtfAnio.getText());
-                int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro de modificar esta materia?", "Confirmación", JOptionPane.YES_NO_OPTION);
-                if (resp == JOptionPane.YES_NO_OPTION) {
-                    Materia mt = new Materia(id, nombre, anio, true);
-                    MateriaData md = new MateriaData();
-                    md.modificarMateria(mt);
-                } else if (resp == JOptionPane.NO_OPTION) {
-                    JOptionPane.showMessageDialog(null, "Operación cancelada", "Información", JOptionPane.INFORMATION_MESSAGE);
-                }
+                Materia mt = new Materia(id, nombre, anio, true);
+                MateriaData md = new MateriaData();
+                md.modificarMateria(mt);
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Ingrese solo números");
             }

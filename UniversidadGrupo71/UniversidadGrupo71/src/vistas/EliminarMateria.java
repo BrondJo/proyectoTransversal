@@ -117,11 +117,9 @@ public class EliminarMateria extends javax.swing.JInternalFrame {
         jLabel5.setText("AÑO");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
-        jtfNombre.setEditable(false);
         jtfNombre.setBackground(new java.awt.Color(230, 244, 245));
         jPanel1.add(jtfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 180, -1));
 
-        jtfAnio.setEditable(false);
         jtfAnio.setBackground(new java.awt.Color(230, 244, 245));
         jPanel1.add(jtfAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 180, -1));
 

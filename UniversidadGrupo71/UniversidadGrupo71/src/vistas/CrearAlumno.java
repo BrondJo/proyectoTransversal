@@ -6,7 +6,6 @@ package vistas;
 
 import AccesoADatos.AlumnoData;
 import Entidades.Alumno;
-import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -24,8 +23,6 @@ public class CrearAlumno extends javax.swing.JInternalFrame {
      */
     public CrearAlumno() {
         initComponents();
-        JTextFieldDateEditor editor = (JTextFieldDateEditor) calendario.getDateEditor(); //se convierte el jDateChooser en jTextFieldDateEditor para desactivar la edicion del campo de texto
-        editor.setEditable(false);
         jLabel1.setOpaque(true);
         jLabel1.setBackground(new Color(2, 64, 126));
         jPanel1.setBackground(new Color(223, 232, 225));
@@ -53,6 +50,7 @@ public class CrearAlumno extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -138,13 +136,13 @@ public class CrearAlumno extends javax.swing.JInternalFrame {
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
         // TODO add your handling code here:
-        if (jtfNombre.getText().isEmpty() || jtfApellido.getText().isEmpty() || jtfDni.getText().isEmpty() || calendario.getDate() == null) {
+        if (jtfNombre.getText().isEmpty() || jtfApellido.getText().isEmpty() || jtfDni.getText().isEmpty() || buttonGroup1.getSelection() == null || calendario.getDate() == null) {
             JOptionPane.showMessageDialog(null, "Complete los campos vacíos");
         } else {
             try {
                 String nombre = jtfNombre.getText();
                 String apellido = jtfApellido.getText();
-                int dni = Integer.parseInt(jtfDni.getText());
+                int dni = Integer.valueOf(jtfDni.getText());
                 LocalDate fecha = calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro de crear este alumno?", "Confirmación", JOptionPane.YES_NO_OPTION);
                 if(resp == JOptionPane.YES_NO_OPTION){
@@ -154,6 +152,7 @@ public class CrearAlumno extends javax.swing.JInternalFrame {
                 jtfNombre.setText("");
                 jtfApellido.setText("");
                 jtfDni.setText("");
+                buttonGroup1.clearSelection();
                 calendario.setDate(null);
                 }
                 else if(resp == JOptionPane.NO_OPTION){
@@ -178,6 +177,7 @@ public class CrearAlumno extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private com.toedter.calendar.JDateChooser calendario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
