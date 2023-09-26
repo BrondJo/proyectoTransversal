@@ -38,8 +38,8 @@ public class AlumnoData {
 
             if (rs.next()) {
                 alumno.setId(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Alumno Guardado");
-                ps.close();//TODO Agregar al Finaly
+                JOptionPane.showMessageDialog(null, "Alumno Guardado. ID: " +alumno.getId());
+                ps.close();
             }
 
         } catch (SQLException ex) {

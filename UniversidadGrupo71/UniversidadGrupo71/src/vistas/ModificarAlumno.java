@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author joelb
@@ -261,6 +262,9 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
+        if (jtfDNI.getText().isEmpty() || jtfID.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Complete los campos vacíos");
+        } else {
             try {
                 if (jrbID.isSelected()) {
                     int id = Integer.parseInt(jtfID.getText());
@@ -298,6 +302,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
                 jtfID.setText("");
                 jtfDNI.setText("");
             }
+        }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
@@ -312,9 +317,14 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
                 String nombre = jtfNombre.getText();
                 String apellido = jtfApellido.getText();
                 LocalDate fecha = calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-                Alumno alu = new Alumno(id, dni, apellido, nombre, fecha, estado);
-                AlumnoData alumnoData = new AlumnoData();
-                alumnoData.modificarAlumno(alu);
+                int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro de modificar esta materia?", "Confirmación", JOptionPane.YES_NO_OPTION);
+                if (resp == JOptionPane.YES_NO_OPTION) {
+                    Alumno alu = new Alumno(id, dni, apellido, nombre, fecha, estado);
+                    AlumnoData alumnoData = new AlumnoData();
+                    alumnoData.modificarAlumno(alu);
+                } else if (resp == JOptionPane.NO_OPTION) {
+                    JOptionPane.showMessageDialog(null, "Operación cancelada", "Información", JOptionPane.INFORMATION_MESSAGE);
+                }
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Ingrese solo números");
             }
