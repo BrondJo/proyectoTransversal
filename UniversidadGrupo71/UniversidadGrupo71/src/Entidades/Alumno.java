@@ -82,7 +82,7 @@ public class Alumno implements Comparable<Alumno>{
 
     @Override
     public String toString() {
-        return this.id + " " + this.nombre + " " + this.apellido + " " + this.dni;
+        return this.id + ". " + this.apellido.toUpperCase() + ", " + this.nombre + " "+ this.dni;
     }
 
     @Override

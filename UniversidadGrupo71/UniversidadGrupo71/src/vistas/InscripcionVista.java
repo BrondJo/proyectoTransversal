@@ -4,6 +4,7 @@ package vistas;
 import AccesoADatos.AlumnoData;
 import AccesoADatos.InscripcionData;
 import AccesoADatos.MateriaData;
+import Entidades.Alumno;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -20,7 +21,8 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
    
     public InscripcionVista() {
         initComponents();
-         armarModelo();
+        armarModelo();
+        modeloBoxAlumnos();
     }
 
     
@@ -35,9 +37,9 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
         jtMaterias = new javax.swing.JTable();
         jbInscripcion = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jtIdAlumno = new javax.swing.JTextField();
         jbVerMaterias = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jboxAlumnos = new javax.swing.JComboBox<>();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,22 +119,6 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
         jLabel3.setOpaque(true);
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 150, 25));
 
-        jtIdAlumno.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jtIdAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtIdAlumnoActionPerformed(evt);
-            }
-        });
-        jtIdAlumno.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtIdAlumnoKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtIdAlumnoKeyTyped(evt);
-            }
-        });
-        jPanel3.add(jtIdAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 50, 25));
-
         jbVerMaterias.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jbVerMaterias.setText("Ver materias");
         jbVerMaterias.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +126,7 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
                 jbVerMateriasActionPerformed(evt);
             }
         });
-        jPanel3.add(jbVerMaterias, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, -1, -1));
+        jPanel3.add(jbVerMaterias, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, -1, -1));
 
         jLabel5.setBackground(new java.awt.Color(2, 64, 126));
         jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -150,13 +136,20 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
         jLabel5.setOpaque(true);
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 600, 40));
 
+        jboxAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jboxAlumnosMouseClicked(evt);
+            }
+        });
+        jPanel3.add(jboxAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 270, -1));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -6, 600, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbVerMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerMateriasActionPerformed
-        cargarMaterias(Integer.parseInt(jtIdAlumno.getText()));
+        cargarMaterias(((Alumno)jboxAlumnos.getSelectedItem()).getId());
     }//GEN-LAST:event_jbVerMateriasActionPerformed
 
     private void jbInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscripcionActionPerformed
@@ -165,11 +158,11 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
         if (jtMaterias.getSelectedRow()>-1) {
         Inscripcion ins1= new Inscripcion();
         ins1.setNota(0);
-        ins1.setAlumno(alumData.buscarAlumnoId(Integer.parseInt(jtIdAlumno.getText())));
+        ins1.setAlumno((Alumno)jboxAlumnos.getSelectedItem());
         ins1.setMateria(matData.buscarMateria((int)jtMaterias.getValueAt(filaSeleccionada, 0)));        
          inscData.guardarInscripcion(ins1);
         limpiar();
-        cargarMaterias(Integer.parseInt(jtIdAlumno.getText()));}  
+        cargarMaterias(((Alumno)jboxAlumnos.getSelectedItem()).getId());}  
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(this, "Error al inscribirte"); 
             limpiar();
@@ -180,20 +173,10 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
        jbInscripcion.setEnabled(true);      
     }//GEN-LAST:event_jtMateriasMouseClicked
 
-    private void jtIdAlumnoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdAlumnoKeyReleased
-        // TODO add your handling code here:
-        limpiar();
-    }//GEN-LAST:event_jtIdAlumnoKeyReleased
-
-    private void jtIdAlumnoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdAlumnoKeyTyped
-    char c= evt.getKeyChar();
-    if (c<'0'||c>'9')evt.consume();
-    jbInscripcion.setEnabled(false);   
-    }//GEN-LAST:event_jtIdAlumnoKeyTyped
-
-    private void jtIdAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIdAlumnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtIdAlumnoActionPerformed
+    private void jboxAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jboxAlumnosMouseClicked
+      limpiar();
+      jbInscripcion.setEnabled(false);
+    }//GEN-LAST:event_jboxAlumnosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -205,7 +188,7 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbInscripcion;
     private javax.swing.JButton jbVerMaterias;
-    private javax.swing.JTextField jtIdAlumno;
+    private javax.swing.JComboBox<Alumno> jboxAlumnos;
     private javax.swing.JTable jtMaterias;
     // End of variables declaration//GEN-END:variables
 
@@ -230,4 +213,9 @@ private InscripcionData inscData=new InscripcionData(matData, alumData);
         }
     
     }
+    private void modeloBoxAlumnos(){  
+    for (Alumno a : alumData.listarAlumnos()) {
+        jboxAlumnos.addItem(a);
+    }
+}
 }

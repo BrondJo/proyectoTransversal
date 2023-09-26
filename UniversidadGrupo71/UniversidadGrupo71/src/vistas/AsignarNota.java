@@ -122,13 +122,14 @@ private Materia materia;
 
         jboxAlumnos.setBackground(new java.awt.Color(223, 232, 225));
         jboxAlumnos.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jboxAlumnos.setAutoscrolls(true);
         jboxAlumnos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jboxAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jboxAlumnosActionPerformed(evt);
             }
         });
-        jPanel1.add(jboxAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 170, -1));
+        jPanel1.add(jboxAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 260, -1));
 
         jboxMaterias.setBackground(new java.awt.Color(223, 232, 225));
         jboxMaterias.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -138,7 +139,7 @@ private Materia materia;
                 jboxMateriasActionPerformed(evt);
             }
         });
-        jPanel1.add(jboxMaterias, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 170, -1));
+        jPanel1.add(jboxMaterias, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 260, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, 1, 590, 370));
 
